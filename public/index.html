@@ -64,11 +64,58 @@
       border: none;
       border-top: 1px solid var(--rule);
     }
+
+    /* ── Hero ──────────────────────────────────────────────── */
+    .hero {
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      padding-top: clamp(4rem, 10vw, 8rem);
+      padding-bottom: clamp(4rem, 10vw, 8rem);
+    }
+    .hero__eyebrow {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+    }
+    .hero__headline {
+      font-family: var(--font-serif);
+      font-size: clamp(3.8rem, 10vw, 8.5rem);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 2rem;
+    }
+    .hero__headline em {
+      font-style: italic;
+      color: var(--muted);
+    }
+    .hero__sub {
+      font-family: var(--font-sans);
+      font-size: clamp(0.85rem, 1.5vw, 1rem);
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
   </style>
 </head>
 <body>
 
-  <!-- Sections will be added in subsequent tasks -->
+  <!-- ── HERO ──────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="container">
+      <p class="hero__eyebrow">trinetryinfotech.com</p>
+      <h1 class="hero__headline">Intelligence,<br><em>Engineered.</em></h1>
+      <p class="hero__sub">AI &middot; ML &middot; Quantitative Systems &middot; Consulting</p>
+    </div>
+  </section>
+  <hr class="rule" />
 
 </body>
 </html>
