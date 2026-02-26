@@ -103,6 +103,67 @@
       text-transform: uppercase;
       color: var(--muted);
     }
+
+    /* ── Section label ─────────────────────────────────────── */
+    .section-label {
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 4rem;
+    }
+
+    /* ── Services ──────────────────────────────────────────── */
+    .services__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+    .service-item {
+      display: grid;
+      grid-template-columns: 5rem 1fr;
+      gap: 0 1.5rem;
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--rule);
+      position: relative;
+      transition: background 0.25s ease;
+      cursor: default;
+    }
+    .service-item:nth-child(odd) {
+      padding-right: 3rem;
+    }
+    .service-item:nth-child(even) {
+      padding-left: 3rem;
+      border-left: 1px solid var(--rule);
+    }
+    .service-item:hover {
+      background: rgba(26,26,24,0.025);
+    }
+    .service-item__num {
+      font-family: var(--font-serif);
+      font-size: 3.5rem;
+      font-weight: 400;
+      color: var(--ink);
+      opacity: 0.07;
+      line-height: 1;
+      padding-top: 0.1rem;
+      user-select: none;
+    }
+    .service-item__title {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+    .service-item__desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
   </style>
 </head>
 <body>
@@ -113,6 +174,57 @@
       <p class="hero__eyebrow">trinetryinfotech.com</p>
       <h1 class="hero__headline">Intelligence,<br><em>Engineered.</em></h1>
       <p class="hero__sub">AI &middot; ML &middot; Quantitative Systems &middot; Consulting</p>
+    </div>
+  </section>
+  <hr class="rule" />
+
+  <!-- ── SERVICES ───────────────────────────────────────── -->
+  <section class="services">
+    <div class="container">
+      <h2 class="section-label">Services</h2>
+      <div class="services__grid">
+
+        <article class="service-item">
+          <span class="service-item__num">01</span>
+          <div class="service-item__body">
+            <h3 class="service-item__title">AI/ML Model Development</h3>
+            <p class="service-item__desc">End-to-end design, training, and deployment of machine learning models tailored to your domain.</p>
+          </div>
+        </article>
+
+        <article class="service-item">
+          <span class="service-item__num">02</span>
+          <div class="service-item__body">
+            <h3 class="service-item__title">Quantitative Trading Systems</h3>
+            <p class="service-item__desc">Research-grade algorithmic strategies, backtesting infrastructure, and live execution pipelines.</p>
+          </div>
+        </article>
+
+        <article class="service-item">
+          <span class="service-item__num">03</span>
+          <div class="service-item__body">
+            <h3 class="service-item__title">Data Engineering &amp; Analytics</h3>
+            <p class="service-item__desc">Scalable data pipelines, warehousing, and intelligence layers that turn raw data into decisions.</p>
+          </div>
+        </article>
+
+        <article class="service-item">
+          <span class="service-item__num">04</span>
+          <div class="service-item__body">
+            <h3 class="service-item__title">Custom Software &amp; Tech Consulting</h3>
+            <p class="service-item__desc">Bespoke engineering solutions and strategic technology advisory for complex business problems.</p>
+          </div>
+        </article>
+
+        <article class="service-item">
+          <span class="service-item__num">05</span>
+          <div class="service-item__body">
+            <h3 class="service-item__title">Research &amp; Prototyping</h3>
+            <p class="service-item__desc">Rapid experimentation and proof-of-concept development at the frontier of AI and quantitative methods.</p>
+          </div>
+        </article>
+
+      </div>
     </div>
   </section>
   <hr class="rule" />
