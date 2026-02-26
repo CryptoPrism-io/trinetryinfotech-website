@@ -30,6 +30,7 @@
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       .service-item { transition: none; }
+      .fade-up { transition: none; transform: none; opacity: 1; }
     }
     body {
       background: var(--bg);
@@ -221,6 +222,21 @@
       text-align: center;
     }
 
+    /* ── Entrance animations ───────────────────────────────── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-up:nth-child(2) { transition-delay: 0.1s; }
+    .fade-up:nth-child(3) { transition-delay: 0.2s; }
+    .fade-up:nth-child(4) { transition-delay: 0.3s; }
+    .fade-up:nth-child(5) { transition-delay: 0.4s; }
+
     /* ── Responsive ────────────────────────────────────────── */
     @media (max-width: 700px) {
       .services__grid {
@@ -248,9 +264,9 @@
   <!-- ── HERO ──────────────────────────────────────────── -->
   <section class="hero">
     <div class="container">
-      <p class="hero__eyebrow">trinetryinfotech.com</p>
-      <h1 class="hero__headline">Intelligence,<br><em>Engineered.</em></h1>
-      <p class="hero__sub">AI &middot; ML &middot; Quantitative Systems &middot; Consulting</p>
+      <p class="hero__eyebrow fade-up">trinetryinfotech.com</p>
+      <h1 class="hero__headline fade-up">Intelligence,<br><em>Engineered.</em></h1>
+      <p class="hero__sub fade-up">AI &middot; ML &middot; Quantitative Systems &middot; Consulting</p>
     </div>
   </section>
   <hr class="rule" />
@@ -261,7 +277,7 @@
       <h2 class="section-label" id="services-heading">Services</h2>
       <div class="services__grid">
 
-        <article class="service-item">
+        <article class="service-item fade-up">
           <span class="service-item__num" aria-hidden="true">01</span>
           <div class="service-item__body">
             <h3 class="service-item__title">AI/ML Model Development</h3>
@@ -269,7 +285,7 @@
           </div>
         </article>
 
-        <article class="service-item">
+        <article class="service-item fade-up">
           <span class="service-item__num" aria-hidden="true">02</span>
           <div class="service-item__body">
             <h3 class="service-item__title">Quantitative Trading Systems</h3>
@@ -277,7 +293,7 @@
           </div>
         </article>
 
-        <article class="service-item">
+        <article class="service-item fade-up">
           <span class="service-item__num" aria-hidden="true">03</span>
           <div class="service-item__body">
             <h3 class="service-item__title">Data Engineering &amp; Analytics</h3>
@@ -285,7 +301,7 @@
           </div>
         </article>
 
-        <article class="service-item">
+        <article class="service-item fade-up">
           <span class="service-item__num" aria-hidden="true">04</span>
           <div class="service-item__body">
             <h3 class="service-item__title">Custom Software &amp; Tech Consulting</h3>
@@ -293,7 +309,7 @@
           </div>
         </article>
 
-        <article class="service-item">
+        <article class="service-item fade-up">
           <span class="service-item__num" aria-hidden="true">05</span>
           <div class="service-item__body">
             <h3 class="service-item__title">Research &amp; Prototyping</h3>
@@ -310,7 +326,7 @@
   <section class="about" aria-labelledby="about-heading">
     <div class="container">
       <h2 class="section-label" id="about-heading">About</h2>
-      <div class="about__inner">
+      <div class="about__inner fade-up">
         <p class="about__text">
           Trinetry Infotech is a specialist technology firm at the intersection of artificial intelligence, quantitative research, and software engineering. We partner with organisations to build intelligent systems that are rigorous, scalable, and grounded in first principles.
         </p>
@@ -321,7 +337,7 @@
 
   <!-- ── CONTACT ────────────────────────────────────────── -->
   <section class="contact" aria-labelledby="contact-heading">
-    <div class="container contact__inner">
+    <div class="container contact__inner fade-up">
       <p class="contact__label" id="contact-heading">Start a Conversation</p>
       <a class="contact__email" href="mailto:hello@trinetryinfotech.com">hello@trinetryinfotech.com</a>
     </div>
@@ -334,5 +350,17 @@
     </div>
   </footer>
 
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
