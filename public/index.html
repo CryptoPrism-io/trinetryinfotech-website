@@ -29,6 +29,7 @@
     html { scroll-behavior: smooth; overflow-x: hidden; }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
+      .service-item { transition: none; }
     }
     body {
       background: var(--bg);
@@ -179,13 +180,13 @@
   <hr class="rule" />
 
   <!-- ── SERVICES ───────────────────────────────────────── -->
-  <section class="services">
+  <section class="services" aria-labelledby="services-heading">
     <div class="container">
-      <h2 class="section-label">Services</h2>
+      <h2 class="section-label" id="services-heading">Services</h2>
       <div class="services__grid">
 
         <article class="service-item">
-          <span class="service-item__num">01</span>
+          <span class="service-item__num" aria-hidden="true">01</span>
           <div class="service-item__body">
             <h3 class="service-item__title">AI/ML Model Development</h3>
             <p class="service-item__desc">End-to-end design, training, and deployment of machine learning models tailored to your domain.</p>
@@ -193,7 +194,7 @@
         </article>
 
         <article class="service-item">
-          <span class="service-item__num">02</span>
+          <span class="service-item__num" aria-hidden="true">02</span>
           <div class="service-item__body">
             <h3 class="service-item__title">Quantitative Trading Systems</h3>
             <p class="service-item__desc">Research-grade algorithmic strategies, backtesting infrastructure, and live execution pipelines.</p>
@@ -201,7 +202,7 @@
         </article>
 
         <article class="service-item">
-          <span class="service-item__num">03</span>
+          <span class="service-item__num" aria-hidden="true">03</span>
           <div class="service-item__body">
             <h3 class="service-item__title">Data Engineering &amp; Analytics</h3>
             <p class="service-item__desc">Scalable data pipelines, warehousing, and intelligence layers that turn raw data into decisions.</p>
@@ -209,7 +210,7 @@
         </article>
 
         <article class="service-item">
-          <span class="service-item__num">04</span>
+          <span class="service-item__num" aria-hidden="true">04</span>
           <div class="service-item__body">
             <h3 class="service-item__title">Custom Software &amp; Tech Consulting</h3>
             <p class="service-item__desc">Bespoke engineering solutions and strategic technology advisory for complex business problems.</p>
@@ -217,7 +218,7 @@
         </article>
 
         <article class="service-item">
-          <span class="service-item__num">05</span>
+          <span class="service-item__num" aria-hidden="true">05</span>
           <div class="service-item__body">
             <h3 class="service-item__title">Research &amp; Prototyping</h3>
             <p class="service-item__desc">Rapid experimentation and proof-of-concept development at the frontier of AI and quantitative methods.</p>
