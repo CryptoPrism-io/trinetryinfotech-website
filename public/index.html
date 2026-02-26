@@ -34,6 +34,9 @@
       .service-item { transition: none; }
       .fade-up { transition: none; transform: none; opacity: 1; }
       .contact__email { transition: none; }
+      .site-nav { transition: none; }
+      .nav__hamburger span { transition: none; }
+      .nav__overlay { transition: none; }
     }
     body {
       background: var(--bg);
@@ -68,6 +71,118 @@
     hr.rule {
       border: none;
       border-top: 1px solid var(--rule);
+    }
+
+    /* ── Nav ────────────────────────────────────────────────── */
+    .site-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: var(--z-nav);
+      background: rgba(245,242,236,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: border-color 0.3s ease;
+      border-bottom: 1px solid transparent;
+    }
+    .site-nav.nav--scrolled {
+      border-bottom-color: var(--rule);
+    }
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+    .nav__logo {
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .nav__logo:hover,
+    .site-nav.nav--scrolled .nav__logo {
+      color: var(--ink);
+    }
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav__link {
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .nav__link:hover,
+    .nav__link.active {
+      color: var(--ink);
+    }
+    .nav__hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav__hamburger span {
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: var(--ink);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .nav__hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .nav__hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav__hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    /* ── Nav Overlay (mobile) ─────────────────────────────── */
+    .nav__overlay {
+      position: fixed;
+      inset: 0;
+      top: 56px;
+      background: var(--bg);
+      z-index: calc(var(--z-nav) - 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .nav__overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .nav__overlay-links {
+      list-style: none;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+    .nav__overlay-link {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+    .nav__overlay-link:hover {
+      color: var(--muted);
     }
 
     /* ── Hero ──────────────────────────────────────────────── */
@@ -259,11 +374,39 @@
       .service-item__num {
         font-size: 2.5rem;
       }
+      .nav__links { display: none; }
+      .nav__hamburger { display: flex; }
     }
   </style>
   <noscript><style>.fade-up { opacity: 1; transform: none; }</style></noscript>
 </head>
 <body>
+
+  <!-- ── NAV ───────────────────────────────────────────── -->
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav__inner container">
+      <a class="nav__logo" href="#home">trinetryinfotech.com</a>
+      <ul class="nav__links" role="list">
+        <li><a class="nav__link" href="#services">Services</a></li>
+        <li><a class="nav__link" href="#projects">Projects</a></li>
+        <li><a class="nav__link" href="#about">About</a></li>
+        <li><a class="nav__link" href="#contact">Contact</a></li>
+      </ul>
+      <button class="nav__hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── NAV OVERLAY (mobile) ──────────────────────────── -->
+  <div class="nav__overlay" aria-hidden="true">
+    <ul class="nav__overlay-links" role="list">
+      <li><a class="nav__overlay-link" href="#services">Services</a></li>
+      <li><a class="nav__overlay-link" href="#projects">Projects</a></li>
+      <li><a class="nav__overlay-link" href="#about">About</a></li>
+      <li><a class="nav__overlay-link" href="#contact">Contact</a></li>
+    </ul>
+  </div>
 
   <!-- ── HERO ──────────────────────────────────────────── -->
   <section class="hero" id="home">
