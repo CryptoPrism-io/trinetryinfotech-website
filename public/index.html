@@ -165,6 +165,20 @@
       color: var(--muted);
       line-height: 1.65;
     }
+
+    /* ── About ─────────────────────────────────────────────── */
+    .about__inner {
+      border-left: 2px solid var(--ink);
+      padding-left: 2.5rem;
+      max-width: 680px;
+    }
+    .about__text {
+      font-family: var(--font-serif);
+      font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+      font-weight: 400;
+      line-height: 1.65;
+      color: var(--ink);
+    }
   </style>
 </head>
 <body>
@@ -225,6 +239,19 @@
           </div>
         </article>
 
+      </div>
+    </div>
+  </section>
+  <hr class="rule" />
+
+  <!-- ── ABOUT ──────────────────────────────────────────── -->
+  <section class="about" aria-labelledby="about-heading">
+    <div class="container">
+      <h2 class="section-label" id="about-heading">About</h2>
+      <div class="about__inner">
+        <p class="about__text">
+          Trinetry Infotech is a specialist technology firm at the intersection of artificial intelligence, quantitative research, and software engineering. We partner with organisations to build intelligent systems that are rigorous, scalable, and grounded in first principles.
+        </p>
       </div>
     </div>
   </section>
