@@ -179,6 +179,47 @@
       line-height: 1.65;
       color: var(--ink);
     }
+
+    /* ── Contact ───────────────────────────────────────────── */
+    .contact__inner {
+      text-align: center;
+    }
+    .contact__label {
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    .contact__email {
+      display: inline-block;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: clamp(1.1rem, 3vw, 1.8rem);
+      font-weight: 400;
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 0.15em;
+      transition: opacity 0.2s ease;
+      letter-spacing: -0.01em;
+    }
+    .contact__email:hover {
+      opacity: 0.5;
+    }
+
+    /* ── Footer ────────────────────────────────────────────── */
+    .footer {
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--rule);
+    }
+    .footer p {
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -256,6 +297,21 @@
     </div>
   </section>
   <hr class="rule" />
+
+  <!-- ── CONTACT ────────────────────────────────────────── -->
+  <section class="contact" aria-labelledby="contact-heading">
+    <div class="container contact__inner">
+      <p class="contact__label" id="contact-heading">Start a Conversation</p>
+      <a class="contact__email" href="mailto:hello@trinetryinfotech.com">hello@trinetryinfotech.com</a>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 trinetryinfotech.com &mdash; All rights reserved.</p>
+    </div>
+  </footer>
 
 </body>
 </html>
