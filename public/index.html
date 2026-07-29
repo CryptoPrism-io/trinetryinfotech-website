@@ -225,6 +225,9 @@
       font-size: clamp(1.2rem, 2.5vw, 1.8rem); font-weight: 700;
       letter-spacing: -0.02em; color: var(--ink); line-height: 1.15;
     }
+    .section-head__action { margin-left: auto; }
+    .section-head__action a { font-size: 0.8rem; font-weight: 500; color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+    .section-head__action a:hover { border-bottom-color: var(--accent); }
 
     /* ── Service cells ──────────────────────────────────── */
     .service__title {
@@ -373,7 +376,7 @@
     </a>
     <ul class="nav__links" role="list">
       <li><a class="nav__link" href="#services">Services</a></li>
-      <li><a class="nav__link" href="#projects">Projects</a></li>
+      <li><a class="nav__link" href="/projects/">Projects</a></li>
       <li><a class="nav__link" href="#about">About</a></li>
       <li><a class="nav__link" href="#contact">Contact</a></li>
     </ul>
@@ -390,7 +393,7 @@
 <div class="nav-overlay" aria-hidden="true" role="dialog" aria-label="Navigation menu">
   <ul class="nav-overlay__links" role="list">
     <li><a class="nav-overlay__link" href="#services">Services</a></li>
-    <li><a class="nav-overlay__link" href="#projects">Projects</a></li>
+    <li><a class="nav-overlay__link" href="/projects/">Projects</a></li>
     <li><a class="nav-overlay__link" href="#about">About</a></li>
     <li><a class="nav-overlay__link" href="#contact">Contact</a></li>
   </ul>
@@ -535,14 +538,15 @@
       </svg>
     </div>
     <h3 class="service__title">Product Engineering &amp; Advisory</h3>
-    <p class="service__desc">Full-stack product delivery across React 19, Next.js, FastAPI, Firebase, and AWS. PWA, gamification, real-time dashboards — proven across 3 shipped products, each with live users and CI/CD.</p>
+    <p class="service__desc">Full-stack product delivery across React 19, Next.js, FastAPI, Firebase, and AWS. PWA, gamification, real-time dashboards — proven across 12 shipped products, each with live users and CI/CD.</p>
   </div>
 
   <!-- ════ PROJECTS ════ -->
   <div class="cell cell--full" id="projects">
     <div class="section-head">
       <span class="section-head__num">02</span>
-      <h2 class="section-head__title">Projects</h2>
+      <h2 class="section-head__title">Featured Projects</h2>
+      <p class="section-head__action"><a href="/projects/">View All &rarr;</a></p>
     </div>
   </div>
 

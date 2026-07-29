@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="All projects by Trinetry Infotech — 12 production-grade products spanning fintech analytics, AI, edtech, gaming, and enterprise ERP/CRM." />
+  <meta property="og:title" content="Projects — Trinetry Infotech" />
+  <meta property="og:description" content="12 production-grade products from Yogesh Sahu and team." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://trinetryinfotech.com/projects/" />
+  <link rel="icon" href="/favicon.svg" />
+  <link rel="alternate icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23181612'/%3E%3Ctext x='50' y='76' font-size='72' font-family='Geist,Mono,monospace' fill='%23E8E2D6' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E" />
+  <title>Projects — Trinetry Infotech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --paper:        #0E0D0A;
+      --cell:         #181612;
+      --ink:          #E8E2D6;
+      --muted:        #8A847A;
+      --accent:       #D4784A;
+      --accent-soft:  rgba(212,120,74,0.08);
+      --border:       rgba(232,226,214,0.07);
+      --font-sans:    'Geist', system-ui, -apple-system, sans-serif;
+      --font-mono:    'Geist Mono', 'SF Mono', 'Menlo', monospace;
+    }
+    *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--paper); color: var(--ink); font-family: var(--font-sans); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; }
+
+    /* ── Nav ─────────────────────────────────────────────── */
+    .nav-wrap { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; justify-content: center; padding: 0.75rem 1.5rem; pointer-events: none; }
+    .nav-pill { display: flex; align-items: center; gap: 1.25rem; background: rgba(14,13,10,0.72); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid var(--border); border-radius: 9999px; padding: 0.35rem 0.35rem 0.35rem 1rem; pointer-events: auto; transition: box-shadow 0.3s; }
+    .nav-pill.nav--scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.4); }
+    .nav__logo { display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; font-weight: 500; color: var(--muted); text-decoration: none; letter-spacing: 0.02em; white-space: nowrap; flex-shrink: 0; }
+    .nav__logo-mark { width: 18px; height: 18px; flex-shrink: 0; color: var(--accent); }
+    .nav__links { display: flex; align-items: center; gap: 0.25rem; list-style: none; }
+    .nav__link { font-size: 0.75rem; font-weight: 500; color: var(--muted); text-decoration: none; padding: 0.35rem 0.7rem; border-radius: 9999px; transition: color 0.2s, background 0.2s; }
+    .nav__link:hover, .nav__link.active { color: var(--ink); background: var(--accent-soft); }
+    .nav__hamburger { display: none; background: none; border: none; color: var(--muted); cursor: pointer; padding: 0.35rem; }
+    .nav-overlay { display: none; position: fixed; inset: 0; z-index: 199; background: rgba(14,13,10,0.92); backdrop-filter: blur(20px); align-items: center; justify-content: center; }
+    .nav-overlay.open { display: flex; }
+    .nav-overlay__links { list-style: none; text-align: center; display: flex; flex-direction: column; gap: 1.5rem; }
+    .nav-overlay__link { font-size: 1.4rem; font-weight: 500; color: var(--ink); text-decoration: none; }
+    .skip-link { position: absolute; top: -100%; left: 0; z-index: 999; padding: 0.5rem 1rem; background: var(--accent); color: var(--paper); font-size: 0.8rem; text-decoration: none; }
+    .skip-link:focus { top: 0; }
+
+    /* ── Layout ──────────────────────────────────────────── */
+    main { max-width: 820px; margin: 0 auto; padding: 0 1.5rem; }
+    .page-head { padding: 6rem 0 2.5rem; }
+    .page-head__back { display: inline-block; font-size: 0.75rem; color: var(--muted); text-decoration: none; margin-bottom: 0.75rem; transition: color 0.2s; }
+    .page-head__back:hover { color: var(--accent); }
+    .page-head__title { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; }
+    .page-head__sub { margin-top: 0.75rem; font-size: 0.9rem; color: var(--muted); max-width: 540px; }
+
+    /* ── Project cards ───────────────────────────────────── */
+    .project-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 3rem; }
+    .project-card { display: grid; grid-template-columns: 1fr 2.2fr; gap: 1.5rem; padding: 1.5rem 2rem; background: var(--cell); text-decoration: none; transition: background 0.2s; }
+    .project-card:hover { background: #1F1D18; }
+    .project-card__name { font-size: 1.05rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 0.35rem; }
+    .project-card__badge { font-family: var(--font-mono); font-size: 0.6rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.4rem; }
+    .project-card__desc { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+    .project-card__pills { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.6rem; }
+    .project-card__pills li { list-style: none; font-size: 0.6rem; font-weight: 500; color: var(--muted); background: var(--accent-soft); padding: 0.15rem 0.5rem; border-radius: 9999px; letter-spacing: 0.02em; }
+    .project-card__stack { margin-top: 0.5rem; font-size: 0.7rem; color: var(--muted); display: flex; align-items: center; flex-wrap: wrap; gap: 0.35rem; }
+    .project-card__stack .tech-icon { display: inline-block; vertical-align: middle; width: 14px; height: 14px; opacity: 0.65; flex-shrink: 0; }
+    .project-card__link { font-size: 0.75rem; font-weight: 500; color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; white-space: nowrap; }
+    .project-card__link:hover { border-bottom-color: var(--accent); }
+    .project-card__right { display: flex; flex-direction: column; }
+    .project-card__right .project-card__link { align-self: flex-start; margin-top: auto; }
+
+    /* ── Featured badge ──────────────────────────────────── */
+    .project-card--featured { position: relative; }
+    .project-card--featured::after { content: 'Featured'; position: absolute; top: 0.75rem; right: 0.75rem; font-family: var(--font-mono); font-size: 0.55rem; color: var(--accent); background: var(--accent-soft); padding: 0.15rem 0.45rem; border-radius: 9999px; letter-spacing: 0.06em; }
+
+    /* ── Footer ──────────────────────────────────────────── */
+    .footer-inner { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 1.5rem 0 3rem; }
+    .footer__tagline { font-size: 0.85rem; font-weight: 500; letter-spacing: -0.01em; color: var(--ink); }
+    .footer__tagline .accent { color: var(--accent); }
+    .footer__copy { font-size: 0.65rem; color: var(--muted); letter-spacing: 0.05em; }
+
+    /* ── Responsive ──────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .project-card { grid-template-columns: 1fr; gap: 0.75rem; padding: 1.25rem 1.25rem; }
+      .project-card--featured::after { top: 0.5rem; right: 0.5rem; }
+      .nav__links .nav__link { display: none; }
+      .nav__hamburger { display: flex; }
+      .page-head { padding: 5rem 0 1.5rem; }
+    }
+    @media (max-width: 340px) {
+      main { padding: 0 0.75rem; }
+      .project-card { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<div class="nav-wrap">
+  <nav class="nav-pill" aria-label="Main navigation">
+    <a class="nav__logo" href="/">
+      <svg class="nav__logo-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <rect x="3" y="3" width="58" height="58" rx="4" stroke="currentColor" stroke-width="2.5" fill="none" opacity="0.3"/>
+        <circle cx="32" cy="32" r="23" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.2"/>
+        <polygon points="32,13 45,42 19,42" stroke="currentColor" stroke-width="1.8" fill="none"/>
+        <polygon points="32,51 45,22 19,22" stroke="currentColor" stroke-width="1.8" fill="none"/>
+        <circle cx="32" cy="32" r="3" fill="currentColor"/>
+      </svg>
+      trinetryinfotech.com
+    </a>
+    <ul class="nav__links" role="list">
+      <li><a class="nav__link" href="/">Home</a></li>
+      <li><a class="nav__link active" href="/projects/">Projects</a></li>
+    </ul>
+    <button class="nav__hamburger" aria-label="Open menu" aria-expanded="false">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <line x1="4" y1="6" x2="16" y2="6"/>
+        <line x1="4" y1="10" x2="16" y2="10"/>
+        <line x1="4" y1="14" x2="16" y2="14"/>
+      </svg>
+    </button>
+  </nav>
+</div>
+
+<div class="nav-overlay" aria-hidden="true" role="dialog" aria-label="Navigation menu">
+  <ul class="nav-overlay__links" role="list">
+    <li><a class="nav-overlay__link" href="/">Home</a></li>
+    <li><a class="nav-overlay__link" href="/projects/">Projects</a></li>
+  </ul>
+</div>
+
+<main id="main">
+
+<div class="page-head">
+  <a class="page-head__back" href="/">&larr; Home</a>
+  <h1 class="page-head__title">All Projects</h1>
+  <p class="page-head__sub">12 production-grade products shipped across fintech, AI, gaming, edtech, and enterprise — spanning 17 blockchains, 10+ ML models, and real users on every platform.</p>
+</div>
+
+<div class="project-list">
+
+  <!-- ── CRYPTOPRISM ON-CHAIN ── -->
+  <a class="project-card project-card--featured" href="https://app.cryptoprism.io" target="_blank" rel="noopener noreferrer">
+    <div>
+      <p class="project-card__badge">Fintech &middot; Infrastructure</p>
+      <p class="project-card__name">CryptoPrism On-chain Analytics</p>
+      <p class="project-card__desc">BigQuery-based on-chain data pipeline processing 1B+ datapoints daily across 100+ coins. Real-time market data ingestion, analytics, and ML-powered scoring.</p>
+      <ul class="project-card__pills"><li>17 Blockchains</li><li>1B+ Datapoints/Day</li><li>100+ Coins</li><li>CryptoScore</li></ul>
+    </div>
+    <div class="project-card__right">
+      <p class="project-card__stack">
+        <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/python/default.svg" alt="" />Python
+        <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/google-bigquery/default.svg" alt="" />BigQuery
+        Cloud Run &middot; GitHub Actions
+      </p>
+      <span class="project-card__link">View Project &rarr;</span>
+    </div>
+  </a>
+
+  <!-- ── CRYPTOPRISM API ── -->
+  <a class="project-card project-card--featured" href="https://app.cryptoprism.io" target="_blank" rel="noopener noreferrer">
+    <div>
+      <p class="project-card__badge">Fintech &middot; Backend</p>
+      <p class="project-card__name">CryptoPrism API</p>
+      <p class="project-card__desc">FastAPI microservices backend deployed on Cloud Run. Serves analytics data, portfolio management, and trading endpoints with &lt;50ms p99 latency.</p>
+      <ul class="project-card__pills"><li>&lt;50ms p99</li><li>RESTful</li><li>PostgreSQL</li><li>Redis Cache</li></ul>
+    </div>
+    <div class="project-card__right">
+      <p class="project-card__stack">
+        <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/python/default.svg" alt="" />Python
+        <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/fastapi/default.svg" alt="" />FastAPI
+        Cloud Run &middot;
+        <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/postgresql/default.svg" alt="" />PostgreSQL
+      </p>
+      <span class="project-card__link">View Project &rarr;</span>
+    </div>
+  </a>
+
+  <!-- ── TIMESFM TRADING BOT ── -->
+  <a class="project-card" href="https://github.com/CryptoPrism-io/times-fm-100-coin-bot" target="_blank" rel="noopener noreferrer">
+    <div>
+      <p class="project-card__badge">Quant &middot; ML Trading</p>
+      <p class="project-card__name">TimesFM 100-Coin Trading Bot</p>
+      <p class="project-card__desc">ML-powered trading bot using Google TimesFM for signal generation across 100 coins. Automated execution via Binance API with multi-timeframe analysis.</p>
+      <ul class="project-card__pills"><li>100 Coins</li><li>TimesFM 2.5</li><li>Multi-TF</li><li>Binance API</li></ul>
+    </div>
+    <div class="project-card__right">
+      <p class="project-card__stack">
+        <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/python/default.svg" alt="" />Python
+        TimesFM &middot;
+        <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/binance/default.svg" alt="" />Binance API
+        <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/google-bigquery/default.svg" alt="" />BigQuery
+      </p>
+      <span class="project-card__link">View on GitHub &rarr;</span>
+    </div>
+  </a>
+
+  <!-- ── CRYPTOPRISM NEWS FETCHER ── -->
+  <a class="project-card" href="https://github.com/CryptoPrism-io/CryptoPrism-News-Fetcher" target="_blank" rel="noopener noreferrer">
+    <div>
+      <p class="project-card__badge">Quant &middot; Sentiment</p>
+      <p class="project-card__name">CryptoPrism News Fetcher</p>
+      <p class="project-card__desc">News sentiment analysis pipeline feeding automated spot trading decisions. Ingests hourly headlines, scores sentiment, and triggers signals via Binance API.</p>
+      <ul class="project-card__pills"><li>Hourly Pipeline</li><li>Sentiment Scoring</li><li>Spot Trading</li><li>Live Signals</li></ul>
+    </div>
+    <div class="project-card__right">
+      <p class="project-card__stack">
+        <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/python/default.svg" alt="" />Python
+        <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/binance/default.svg" alt="" />Binance API
+      </p>
+      <span class="project-card__link">View on GitHub &rarr;</span>
+    </div>
+  </a>
+
+  <!-- ── FXSAARTHI ── -->
+  <a class="project-card" href="https://forex-session-dashboard.vercel.app" target="_blank" rel="noopener noreferrer">
+    <div>
+      <p class="project-card__badge">Fintech &middot; Forex</p>
+      <p class="project-card__name">FxSaarthi</p>
+      <p class="project-card__desc">Professional forex session dashboard tracking the four major sessions (Sydney, Tokyo, London, NY) with real-time pair coverage, session overlap analytics, and economic calendar integration.</p>
+      <ul class="project-card__pills"><li>28 Forex Pairs</li><li>4 Sessions</li><li>Overlap Analytics</li><li>Economic Calendar</li></ul>
+    </div>
+    <div class="project-card__right">
+      <p class="project-card__stack">
+        <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/python/default.svg" alt="" />Python
+        OANDA API &middot;
+        <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/typescript/default.svg" alt="" />TypeScript
+        <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/react/default.svg" alt="" />React
+      </p>
+      <span class="project-card__link">View Project &rarr;</span>
+    </div>
+  </a>
+
+  <!-- ── GYANMARG ── -->
+  <a class="project-card project-card--featured" href="https://ai-polymind.web.app" target="_blank" rel="noopener noreferrer">
+    <div>
+      <p class="project-card__badge">EdTech &middot; Consumer</p>
+      <p class="project-card__name">GyanMarg</p>
+      <p class="project-card__desc">Gamified learning platform with spaced repetition, active recall, 60+ lesson subjects, and 80+ interactive visualizations. PWA with levelling, XP, and progress analytics.</p>
+      <ul class="project-card__pills"><li>60+ Subjects</li><li>80+ Visualizations</li><li>Spaced Repetition</li><li>PWA</li></ul>
+    </div>
+    <div class="project-card__right">
+      <p class="project-card__stack">
+        <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/react/default.svg" alt="" />React 19
+        <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/typescript/default.svg" alt="" />TypeScript
+        <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/vite/default.svg" alt="" />Vite
+        <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/firebase/default.svg" alt="" />Firebase
+      </p>
+      <span class="project-card__link">View Project &rarr;</span>
+    </div>
+  </a>
+
+  <!-- ── PRATYAKSHA ── -->
+  <a class="project-card project-card--featured" href="https://ai-becoming.web.app" target="_blank" rel="noopener noreferrer">
+    <div>
+      <p class="project-card__badge">AI &middot; Consumer</p>
+      <p class="project-card__name">Pratyaksha</p>
+      <p class="project-card__desc">AI-powered cognitive journaling platform with a 4-agent pipeline. Maps emotions, detects recurring themes, and transforms raw thoughts into actionable self-insight.</p>
+      <ul class="project-card__pills"><li>4 AI Agents</li><li>Emotion Mapping</li><li>Theme Detection</li><li>Lightsail</li></ul>
+    </div>
+    <div class="project-card__right">
+      <p class="project-card__stack">
+        <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/react/default.svg" alt="" />React
+        <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/openai/default.svg" alt="" />GPT-4o
+        <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/aws/default.svg" alt="" />AWS Lightsail
+      </p>
+      <span class="project-card__link">View Project &rarr;</span>
+    </div>
+  </a>
+
+  <!-- ── AI BHARATVERSE ── -->
+  <a class="project-card" href="https://github.com/CryptoPrism-io" target="_blank" rel="noopener noreferrer">
+    <div>
+      <p class="project-card__badge">AI &middot; Cultural</p>
+      <p class="project-card__name">AI Bharatverse</p>
+      <p class="project-card__desc">Interactive AI-powered platform for exploring the history of India. Built for Times of India as a 6-month fractional engagement featuring LLM-driven conversational experiences.</p>
+      <ul class="project-card__pills"><li>Times of India</li><li>6-Month Engagement</li><li>LLM Conversational</li><li>Cultural AI</li></ul>
+    </div>
+    <div class="project-card__right">
+      <p class="project-card__stack">
+        <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/react/default.svg" alt="" />React
+        <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/python/default.svg" alt="" />Python
+        LangChain
+      </p>
+      <span class="project-card__link">Learn More &rarr;</span>
+    </div>
+  </a>
+
+  <!-- ── KARI AND THE LOST SHRINES ── -->
+  <a class="project-card" href="https://yogeshsahu.xyz/projects/kari" target="_blank" rel="noopener noreferrer">
+    <div>
+      <p class="project-card__badge">Gaming &middot; Mobile</p>
+      <p class="project-card__name">Kari and the Lost Shrines</p>
+      <p class="project-card__desc">Mobile game built for Isha Foundation — explore Indian temples, solve puzzles, and collect lost relics. 50,000+ downloads with a 4.5+ star rating on both app stores.</p>
+      <ul class="project-card__pills"><li>50K+ Downloads</li><li>4.5+ Rating</li><li>Isha Foundation</li><li>Unity 3D</li></ul>
+    </div>
+    <div class="project-card__right">
+      <p class="project-card__stack">
+        <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/unity/default.svg" alt="" />Unity
+        C# &middot; Mobile
+      </p>
+      <span class="project-card__link">Case Study &rarr;</span>
+    </div>
+  </a>
+
+  <!-- ── TRINETRY ERP/CRM ── -->
+  <a class="project-card" href="https://yogeshsahu.xyz/projects/trinetry-erp" target="_blank" rel="noopener noreferrer">
+    <div>
+      <p class="project-card__badge">Enterprise &middot; Operations</p>
+      <p class="project-card__name">Trinetry ERP/CRM</p>
+      <p class="project-card__desc">Custom ERP/CRM system for SME manufacturing and distribution. Automated invoicing, inventory management, and client outreach with agentic AI workflows.</p>
+      <ul class="project-card__pills"><li>Agentic AI</li><li>Inventory</li><li>Invoicing</li><li>Client Outreach</li></ul>
+    </div>
+    <div class="project-card__right">
+      <p class="project-card__stack">
+        <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/python/default.svg" alt="" />Python
+        <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/react/default.svg" alt="" />React
+        <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/postgresql/default.svg" alt="" />PostgreSQL
+      </p>
+      <span class="project-card__link">Case Study &rarr;</span>
+    </div>
+  </a>
+
+  <!-- ── PGG ERP ── -->
+  <a class="project-card" href="https://yogeshsahu.xyz/projects/pgg-erp" target="_blank" rel="noopener noreferrer">
+    <div>
+      <p class="project-card__badge">Enterprise &middot; Manufacturing</p>
+      <p class="project-card__name">PGG ERP</p>
+      <p class="project-card__desc">Enterprise resource planning system for a manufacturing operation. Inventory management, production scheduling, vendor reconciliation, and financial close — 7 end-to-end operations.</p>
+      <ul class="project-card__pills"><li>Manufacturing</li><li>Production Scheduling</li><li>Vendor Reconciliation</li><li>Finance Close</li></ul>
+    </div>
+    <div class="project-card__right">
+      <p class="project-card__stack">
+        <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/python/default.svg" alt="" />Python
+        <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/postgresql/default.svg" alt="" />PostgreSQL
+        <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/react/default.svg" alt="" />React
+      </p>
+      <span class="project-card__link">Case Study &rarr;</span>
+    </div>
+  </a>
+
+  <!-- ── PGG CRM ── -->
+  <a class="project-card" href="https://yogeshsahu.xyz/projects/pgg-crm" target="_blank" rel="noopener noreferrer">
+    <div>
+      <p class="project-card__badge">Enterprise &middot; Sales</p>
+      <p class="project-card__name">PGG CRM</p>
+      <p class="project-card__desc">Customer relationship and outreach platform built alongside the ERP. Pipeline tracking, automated client communication, deal-stage analytics, and 12 CRUD + pipeline operations.</p>
+      <ul class="project-card__pills"><li>Pipeline Tracking</li><li>Automated Outreach</li><li>Deal Analytics</li><li>12 Operations</li></ul>
+    </div>
+    <div class="project-card__right">
+      <p class="project-card__stack">
+        <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/python/default.svg" alt="" />Python
+        <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/postgresql/default.svg" alt="" />PostgreSQL
+        <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/react/default.svg" alt="" />React
+      </p>
+      <span class="project-card__link">Case Study &rarr;</span>
+    </div>
+  </a>
+
+</div>
+
+<footer class="footer-inner">
+  <p class="footer__tagline"><span class="accent">Intelligence,</span> Engineered.</p>
+  <p class="footer__copy">&copy; 2026 trinetryinfotech.com</p>
+</footer>
+
+</main>
+
+<script>
+(function() {
+  /* ── Nav scroll shadow ── */
+  const pill = document.querySelector('.nav-pill');
+  if (pill) { window.addEventListener('scroll', () => { pill.classList.toggle('nav--scrolled', window.scrollY > 80); }, { passive: true }); }
+
+  /* ── Hamburger menu ── */
+  const ham = document.querySelector('.nav__hamburger');
+  const overlay = document.querySelector('.nav-overlay');
+  const overlayLinks = document.querySelectorAll('.nav-overlay__link');
+  if (ham && overlay) {
+    const toggle = (open) => { ham.setAttribute('aria-expanded', open); overlay.classList.toggle('open', open); overlay.setAttribute('aria-hidden', !open); };
+    ham.addEventListener('click', () => toggle(ham.getAttribute('aria-expanded') !== 'true'));
+    overlayLinks.forEach(link => { link.addEventListener('click', () => toggle(false)); });
+  }
+})();
+</script>
+</body>
+</html>
