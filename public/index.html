@@ -11,580 +11,631 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Trinetry Infotech — Intelligence, Engineered." />
   <meta name="twitter:description" content="AI, machine learning, quantitative systems, and technology consulting." />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23F5F2EC'/%3E%3Ctext x='50' y='76' font-size='72' font-family='Georgia,serif' fill='%231A1A18' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23F5F2EC'/%3E%3Ctext x='50' y='76' font-size='72' font-family='Geist,Mono,monospace' fill='%231A1A18' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E" />
   <title>Trinetry Infotech — AI · ML · Quantitative Systems · Consulting</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
-    /* ── Variables ─────────────────────────────────────── */
+    /* ═══════════════════════════════════════════════════════════════
+       Hallmark · genre: modern-minimal · macrostructure: 04 Stat-Led
+       · theme: Coral · enrichment: none · nav: N5 · footer: Ft5
+       · pre-emit critique: P4 H4 E4 S4 R5 V5
+       ═══════════════════════════════════════════════════════════════ */
+
+    /* ── Tokens (locked) ─────────────────────────────────────── */
     :root {
-      --bg:        #F5F2EC;
-      --ink:       #1A1A18;
-      --muted:     #635F5A;
-      --rule:      rgba(26,26,24,0.12);
-      --max-w:     1100px;
-      --pad-x:     clamp(1.5rem, 6vw, 5rem);
-      --pad-y:     clamp(5rem, 10vw, 9rem);
-      --font-serif: 'DM Serif Display', Georgia, serif;
-      --font-sans:  'DM Sans', system-ui, sans-serif;
-      --z-overlay: 100;
-      --z-nav:     200;
-      --z-modal:   300;
+      --paper:        #F5F2EC;
+      --ink:          #1A1A18;
+      --muted:        #8B8580;
+      --accent:       #E06440;
+      --accent-soft:  rgba(224,100,64,0.10);
+      --rule:         rgba(26,26,24,0.08);
+      --max-w:        1080px;
+      --pad-x:        clamp(1.5rem, 5vw, 4rem);
+      --pad-y:        clamp(3.5rem, 7vw, 6rem);
+      --pad-y-hero:   clamp(4rem, 8vw, 7rem);
+      --font-sans:    'Geist', system-ui, -apple-system, sans-serif;
+      --font-mono:    'Geist Mono', 'SF Mono', 'Menlo', monospace;
+      --z-nav:        200;
+      --z-overlay:    100;
     }
 
-    /* ── Reset ─────────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; overflow-x: hidden; }
+    /* ── Reset ─────────────────────────────────────────────── */
+    *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: clip; }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .service-item { transition: none; }
-      .fade-up { transition: none; transform: none; opacity: 1; }
-      .contact__email { transition: none; }
-      .site-nav { transition: none; }
-      .nav__hamburger span { transition: none; }
-      .nav__overlay { transition: none; }
-      .project-card { transition: none; }
-      .project-card__link { transition: none; }
-      .scroll-progress { display: none; }
-      .back-to-top { transition: none; }
+      *,*::before,*::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
     }
     body {
-      background: var(--bg);
+      background: var(--paper);
       color: var(--ink);
       font-family: var(--font-sans);
       font-size: 1rem;
-      line-height: 1.7;
+      line-height: 1.65;
       -webkit-font-smoothing: antialiased;
-      position: relative;
     }
 
-    /* ── Ink texture overlay ───────────────────────────── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-      opacity: 0.04;
-      pointer-events: none;
-      z-index: var(--z-overlay);
-    }
-
-    /* ── Layout helpers ────────────────────────────────── */
+    /* ── Container ─────────────────────────────────────────── */
     .container {
       max-width: var(--max-w);
       margin: 0 auto;
       padding: 0 var(--pad-x);
     }
-    section {
-      padding: var(--pad-y) 0;
-    }
-    hr.rule {
-      border: none;
-      border-top: 1px solid var(--rule);
-    }
 
-    /* ── Nav ────────────────────────────────────────────────── */
-    .site-nav {
+    /* ── N5 Floating pill nav ─────────────────────────────── */
+    .nav-wrap {
+      display: flex;
+      justify-content: center;
+      padding: 1.25rem var(--pad-x) 0;
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       z-index: var(--z-nav);
-      background: rgba(245,242,236,0.92);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      transition: border-color 0.3s ease;
-      border-bottom: 1px solid transparent;
+      pointer-events: none;
     }
-    .site-nav.nav--scrolled {
-      border-bottom-color: var(--rule);
-    }
-    .nav__inner {
+    .nav-pill {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      height: 56px;
+      gap: 0.5rem;
+      background: rgba(245,242,236,0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      padding: 0.35rem 0.35rem 0.35rem 1.25rem;
+      pointer-events: auto;
+      transition: box-shadow 0.2s;
+    }
+    .nav-pill.nav--scrolled {
+      box-shadow: 0 1px 12px rgba(26,26,24,0.06);
     }
     .nav__logo {
-      font-family: var(--font-sans);
-      font-size: 0.68rem;
+      font-size: 0.7rem;
       font-weight: 500;
-      letter-spacing: 0.22em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--muted);
       text-decoration: none;
-      transition: color 0.2s ease;
+      margin-right: 0.75rem;
+      white-space: nowrap;
+      transition: color 0.2s;
     }
-    .nav__logo:hover,
-    .site-nav.nav--scrolled .nav__logo {
-      color: var(--ink);
-    }
+    .nav__logo:hover { color: var(--ink); }
     .nav__links {
       display: flex;
       align-items: center;
-      gap: 2.5rem;
+      gap: 0.15rem;
       list-style: none;
     }
     .nav__link {
-      font-family: var(--font-sans);
-      font-size: 0.68rem;
+      font-size: 0.7rem;
       font-weight: 500;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--muted);
       text-decoration: none;
-      transition: color 0.2s ease;
+      padding: 0.4rem 0.7rem;
+      border-radius: 999px;
+      transition: color 0.2s, background 0.2s;
     }
     .nav__link:hover,
     .nav__link.active {
       color: var(--ink);
+      background: var(--accent-soft);
     }
     .nav__hamburger {
       display: none;
-      flex-direction: column;
-      gap: 5px;
       background: none;
       border: none;
       cursor: pointer;
-      padding: 4px;
+      padding: 0.35rem;
+      color: var(--ink);
     }
-    .nav__hamburger span {
-      display: block;
-      width: 22px;
-      height: 1px;
-      background: var(--ink);
-      transition: transform 0.3s ease, opacity 0.3s ease;
-    }
-    .nav__hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
-    .nav__hamburger.open span:nth-child(2) { opacity: 0; }
-    .nav__hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+    .nav__hamburger svg { display: block; }
 
-    /* ── Nav Overlay (mobile) ─────────────────────────────── */
-    .nav__overlay {
+    /* nav overlay (mobile) */
+    .nav-overlay {
       position: fixed;
       inset: 0;
-      top: 56px;
-      background: var(--bg);
+      background: var(--paper);
       z-index: calc(var(--z-nav) - 1);
       display: flex;
       align-items: center;
       justify-content: center;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.3s ease;
+      transition: opacity 0.3s;
     }
-    .nav__overlay.open {
+    .nav-overlay.open {
       opacity: 1;
       pointer-events: auto;
     }
-    .nav__overlay-links {
+    .nav-overlay__links {
       list-style: none;
-      text-align: center;
       display: flex;
       flex-direction: column;
+      align-items: center;
       gap: 2.5rem;
     }
-    .nav__overlay-link {
-      font-family: var(--font-serif);
-      font-size: 2.2rem;
+    .nav-overlay__link {
+      font-size: 1.8rem;
+      font-weight: 500;
       color: var(--ink);
       text-decoration: none;
-      letter-spacing: -0.01em;
-    }
-    .nav__overlay-link:hover {
-      color: var(--muted);
-    }
-
-    /* ── Hero ──────────────────────────────────────────────── */
-    .hero {
-      min-height: 100svh;
-      display: flex;
-      align-items: center;
-      padding-top: clamp(5rem, 12vw, 10rem);
-      padding-bottom: clamp(4rem, 10vw, 8rem);
-    }
-    .hero__eyebrow {
-      font-family: var(--font-sans);
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 2.5rem;
-    }
-    .hero__headline {
-      font-family: var(--font-serif);
-      font-size: clamp(3.8rem, 10vw, 8.5rem);
-      font-weight: 400;
-      line-height: 1.05;
       letter-spacing: -0.02em;
-      color: var(--ink);
-      margin-bottom: 2rem;
     }
-    .hero__headline em {
-      font-style: italic;
-      color: var(--muted);
-    }
-    .hero__sub {
-      font-family: var(--font-sans);
-      font-size: clamp(0.85rem, 1.5vw, 1rem);
-      font-weight: 300;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
+    .nav-overlay__link:hover { color: var(--muted); }
 
-    /* ── Section label ─────────────────────────────────────── */
-    .section-label {
-      font-family: var(--font-sans);
+    /* ── H4 Stat-led hero ──────────────────────────────────── */
+    .hero {
+      padding: var(--pad-y-hero) 0 0;
+      min-height: 0;
+    }
+    .hero__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem 4rem;
+      align-items: end;
+    }
+    .hero__label {
       font-size: 0.68rem;
       font-weight: 500;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 4rem;
+      margin-bottom: 1.5rem;
+      grid-column: 1 / -1;
+    }
+    .hero__headline {
+      font-size: clamp(3.2rem, 7vw, 5.8rem);
+      font-weight: 700;
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+    }
+    .hero__headline-accent {
+      color: var(--accent);
+    }
+    .hero__sub {
+      font-size: clamp(0.82rem, 1.2vw, 0.95rem);
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 1.5rem;
+    }
+    .hero__stat {
+      text-align: right;
+      padding-bottom: 0.25rem;
+    }
+    .hero__stat-value {
+      font-family: var(--font-mono);
+      font-size: clamp(4rem, 9vw, 7.5rem);
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: var(--ink);
+      font-variant-numeric: tabular-nums;
+    }
+    .hero__stat-label {
+      font-size: clamp(0.85rem, 1.3vw, 1.05rem);
+      font-weight: 400;
+      color: var(--muted);
+      margin-top: 0.35rem;
+    }
+    .hero__stat-qualifier {
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: var(--muted);
+      margin-top: 0.5rem;
+      letter-spacing: 0.04em;
     }
 
-    /* ── Services ──────────────────────────────────────────── */
-    .services__grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+    /* ── T4 Numbered stat strip ───────────────────────────── */
+    .stat-strip {
+      padding: 2.5rem 0 3rem;
+      display: flex;
       gap: 0;
     }
-    .service-item {
-      display: grid;
-      grid-template-columns: 5rem 1fr;
-      gap: 0 1.5rem;
-      padding: 2.5rem 0;
+    .stat-strip__item {
+      flex: 1;
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+      padding: 0 1.5rem;
+      border-right: 1px solid var(--rule);
+    }
+    .stat-strip__item:first-child { padding-left: 0; }
+    .stat-strip__item:last-child  { padding-right: 0; border-right: none; }
+    .stat-strip__num {
+      font-family: var(--font-mono);
+      font-size: 1.6rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+    .stat-strip__desc {
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+    .stat-strip__rule {
+      border: none;
       border-top: 1px solid var(--rule);
-      position: relative;
-      transition: background 0.25s ease;
-      cursor: default;
     }
-    .service-item:nth-child(odd) {
-      padding-right: 3rem;
+
+    /* ── Section heading (shared) ─────────────────────────── */
+    .section-head {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 3rem;
     }
-    .service-item:nth-child(even) {
-      padding-left: 3rem;
+    .section-head__num {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+    }
+    .section-head__title {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      line-height: 1.15;
+    }
+
+    /* ── F3 Tabular spec sheet (services) ─────────────────── */
+    .services { padding: var(--pad-y) 0; }
+    .spec-table {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr 1.2fr;
+      gap: 0;
+      border-top: 2px solid var(--ink);
+    }
+    .spec-header {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .spec-row {
+      display: contents;
+    }
+    .spec-cell {
+      padding: 1.4rem 1.25rem;
+      border-bottom: 1px solid var(--rule);
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: var(--ink);
+    }
+    .spec-cell:first-child {
+      font-weight: 500;
+    }
+    .spec-cell:nth-child(2),
+    .spec-cell:nth-child(3) {
+      color: var(--muted);
+    }
+    .spec-cell:nth-child(2) {
+      border-right: 1px solid var(--rule);
       border-left: 1px solid var(--rule);
     }
-    .service-item:hover {
-      background: rgba(26,26,24,0.025);
-    }
-    .service-item__num {
-      font-family: var(--font-serif);
-      font-size: 3.5rem;
-      font-weight: 400;
-      color: var(--ink);
-      opacity: 0.07;
-      line-height: 1;
-      padding-top: 0.1rem;
-      user-select: none;
-    }
-    .service-item__title {
-      font-family: var(--font-serif);
-      font-size: 1.2rem;
-      font-weight: 400;
-      color: var(--ink);
-      margin-bottom: 0.5rem;
-      line-height: 1.3;
-    }
-    .service-item__desc {
-      font-size: 0.9rem;
-      color: var(--muted);
-      line-height: 1.65;
-    }
 
-    /* ── About ─────────────────────────────────────────────── */
-    .about__inner {
-      border-left: 2px solid var(--ink);
-      padding-left: 2.5rem;
-      max-width: 680px;
-    }
-    .about__text {
-      font-family: var(--font-serif);
-      font-size: clamp(1.15rem, 2.2vw, 1.45rem);
-      font-weight: 400;
-      line-height: 1.65;
-      color: var(--ink);
-    }
-
-    /* ── Projects ──────────────────────────────────────────── */
-    .projects__grid {
+    /* ── F6 Product card grid ─────────────────────────────── */
+    .projects { padding: var(--pad-y) 0; }
+    .project-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 2rem;
+      grid-template-columns: 7fr 5fr;
+      gap: 1.5rem;
+    }
+    .project-grid > :nth-child(3) {
+      grid-column: 1 / -1;
     }
     .project-card {
       border: 1px solid var(--rule);
-      padding: 2.5rem;
+      padding: 2rem 2rem 2.25rem;
       display: flex;
       flex-direction: column;
-      gap: 1.25rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      gap: 1rem;
+      transition: box-shadow 0.25s;
     }
     .project-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(26,26,24,0.08);
+      box-shadow: 0 8px 32px rgba(26,26,24,0.05);
     }
     .project-card__sanskrit {
-      font-family: var(--font-sans);
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      color: var(--muted);
-      margin-bottom: 0.35rem;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
     }
     .project-card__name {
-      font-family: var(--font-serif);
-      font-size: 2rem;
-      font-weight: 400;
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
       color: var(--ink);
       line-height: 1.1;
-      letter-spacing: -0.02em;
     }
     .project-card__tagline {
-      font-family: var(--font-serif);
-      font-size: 0.95rem;
+      font-size: 0.85rem;
       color: var(--muted);
       line-height: 1.5;
     }
     .project-card__rule {
       border: none;
       border-top: 1px solid var(--rule);
+      margin: 0.25rem 0;
     }
     .project-card__desc {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: var(--muted);
-      line-height: 1.65;
+      line-height: 1.6;
     }
     .project-card__pills {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.4rem;
       list-style: none;
     }
     .project-card__pills li {
-      font-family: var(--font-sans);
-      font-size: 0.65rem;
+      font-size: 0.62rem;
       font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--ink);
       border: 1px solid var(--rule);
-      padding: 0.25rem 0.65rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
     }
     .project-card__stack {
-      font-family: 'Courier New', Courier, monospace;
-      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
       color: var(--muted);
-      letter-spacing: 0.02em;
-      margin-top: auto;
     }
     .project-card__link {
-      font-family: var(--font-sans);
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       font-weight: 500;
       letter-spacing: 0.12em;
       text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 0.05em;
+      align-self: flex-start;
+      transition: opacity 0.2s;
+    }
+    .project-card__link:hover { opacity: 0.6; }
+
+    /* ── S2 Hanging about ────────────────────────────────── */
+    .about { padding: var(--pad-y) 0; }
+    .about__layout {
+      display: grid;
+      grid-template-columns: 8rem 1fr;
+      gap: 2rem 3rem;
+    }
+    .about__title {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: right;
+      padding-top: 0.15rem;
+    }
+    .about__text {
+      max-width: 580px;
+      font-size: clamp(1rem, 1.6vw, 1.15rem);
+      line-height: 1.7;
+      color: var(--ink);
+    }
+
+    /* ── C3 Typographic contact ───────────────────────────── */
+    .contact {
+      padding: var(--pad-y) 0 var(--pad-y-hero);
+    }
+    .contact__layout {
+      display: grid;
+      grid-template-columns: 8rem 1fr;
+      gap: 2rem 3rem;
+      align-items: center;
+    }
+    .contact__label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: right;
+    }
+    .contact__email {
+      font-family: var(--font-mono);
+      font-size: clamp(1rem, 2.2vw, 1.6rem);
+      font-weight: 400;
       color: var(--ink);
       text-decoration: none;
       border-bottom: 1px solid var(--ink);
       padding-bottom: 0.1em;
-      align-self: flex-start;
-      transition: opacity 0.2s ease;
-    }
-    .project-card__link:hover {
-      opacity: 0.5;
-    }
-
-    /* ── Contact ───────────────────────────────────────────── */
-    .contact__inner {
-      text-align: center;
-    }
-    .contact__label {
-      font-family: var(--font-sans);
-      font-size: 0.68rem;
-      font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1.5rem;
-    }
-    .contact__email {
-      display: inline-block;
-      font-family: 'Courier New', Courier, monospace;
-      font-size: clamp(1.1rem, 3vw, 1.8rem);
-      font-weight: 400;
-      color: var(--ink);
-      text-decoration: none;
-      border-bottom: 1px solid var(--ink);
-      padding-bottom: 0.15em;
-      transition: opacity 0.2s ease;
-      letter-spacing: -0.01em;
+      transition: color 0.2s, border-color 0.2s;
+      justify-self: start;
     }
     .contact__email:hover {
-      opacity: 0.5;
+      color: var(--accent);
+      border-color: var(--accent);
     }
 
-    /* ── Footer ────────────────────────────────────────────── */
-    .footer {
+    /* ── T2 Logo wall ────────────────────────────────────── */
+    .built-with {
       padding: 2.5rem 0;
       border-top: 1px solid var(--rule);
     }
-    .footer p {
-      font-size: 0.72rem;
-      letter-spacing: 0.08em;
-      color: var(--muted);
-      text-align: center;
-    }
-
-    /* ── Scroll progress indicator ────────────────────────── */
-    .scroll-progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 2px;
-      background: var(--ink);
-      width: 0%;
-      z-index: calc(var(--z-nav) + 1);
-    }
-
-    /* ── Back-to-top button ──────────────────────────────── */
-    .back-to-top {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      width: 40px;
-      height: 40px;
-      border: 1px solid var(--rule);
-      background: var(--bg);
-      color: var(--ink);
-      cursor: pointer;
-      font-size: 1.2rem;
+    .built-with__inner {
       display: flex;
       align-items: center;
       justify-content: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease, border-color 0.2s ease;
-      z-index: var(--z-overlay);
-    }
-    .back-to-top.visible {
-      opacity: 1;
-      pointer-events: auto;
-    }
-    .back-to-top:hover {
-      border-color: var(--ink);
-    }
-
-    /* ── Metrics bar ─────────────────────────────────────── */
-    .metrics {
-      padding: 3.5rem 0;
-    }
-    .metrics__row {
-      display: flex;
-      justify-content: center;
-      gap: clamp(2rem, 6vw, 4rem);
-      flex-wrap: wrap;
-    }
-    .metrics__item {
-      text-align: center;
-    }
-    .metrics__value {
-      font-family: var(--font-serif);
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 400;
-      color: var(--ink);
-      line-height: 1.1;
-    }
-    .metrics__label {
-      font-family: var(--font-sans);
-      font-size: 0.68rem;
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-top: 0.5rem;
-    }
-
-    /* ── Built-with strip ────────────────────────────────── */
-    .built-with {
-      padding: 3rem 0;
-      border-top: 1px solid var(--rule);
-    }
-    .built-with__label {
-      font-family: var(--font-sans);
-      font-size: 0.62rem;
-      font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--muted);
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-    .built-with__row {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: clamp(1.5rem, 4vw, 3rem);
+      gap: clamp(1.2rem, 3vw, 2.5rem);
       flex-wrap: wrap;
     }
     .built-with__item {
-      font-family: var(--font-sans);
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-weight: 500;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--muted);
-      opacity: 0.55;
-      transition: opacity 0.2s ease;
-    }
-    .built-with__item:hover {
-      opacity: 1;
+      opacity: 0.5;
     }
 
-    /* ── Entrance animations ───────────────────────────────── */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+    /* ── Ft5 Statement footer ────────────────────────────── */
+    .footer {
+      padding: 2rem 0 2.5rem;
     }
-    .fade-up.visible {
+    .footer__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+    }
+    .footer__tagline {
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+    }
+    .footer__tagline-accent {
+      color: var(--accent);
+    }
+    .footer__copy {
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Motion: single number-tick reveal ────────────────── */
+    .tick-reveal {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .tick-reveal.visible {
       opacity: 1;
       transform: translateY(0);
     }
-    .fade-up:nth-child(2) { transition-delay: 0.1s; }
-    .fade-up:nth-child(3) { transition-delay: 0.2s; }
-    .fade-up:nth-child(4) { transition-delay: 0.3s; }
-    .fade-up:nth-child(5) { transition-delay: 0.4s; }
+
+    /* ── Miscellaneous ────────────────────────────────────── */
+    .rule-full {
+      border: none;
+      border-top: 1px solid var(--rule);
+    }
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      background: var(--ink);
+      color: var(--paper);
+      padding: 0.5rem 1rem;
+      z-index: 999;
+      font-size: 0.82rem;
+    }
+    .skip-link:focus { top: 1rem; }
 
     /* ── Responsive ────────────────────────────────────────── */
-    @media (max-width: 700px) {
-      .services__grid {
-        grid-template-columns: 1fr;
-      }
-      .service-item {
-        grid-template-columns: 3.5rem 1fr;
-        padding: 1.8rem 0;
-      }
-      .service-item:nth-child(odd) {
-        padding-right: 0;
-      }
-      .service-item:nth-child(even) {
-        padding-left: 0;
-        border-left: none;
-      }
-      .service-item__num {
-        font-size: 2.5rem;
-      }
+    @media (max-width: 768px) {
       .nav__links { display: none; }
       .nav__hamburger { display: flex; }
-      .projects__grid { grid-template-columns: 1fr; }
-      .project-card { padding: 1.8rem; }
+      .hero__grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .hero__stat {
+        text-align: left;
+      }
+      .stat-strip {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 1.5rem 0 2rem;
+      }
+      .stat-strip__item {
+        padding: 0.75rem 0;
+        border-right: none;
+        border-bottom: 1px solid var(--rule);
+      }
+      .stat-strip__item:last-child { border-bottom: none; }
+      .spec-table {
+        grid-template-columns: 1fr;
+        border-top: none;
+      }
+      .spec-header { display: none; }
+      .spec-cell {
+        padding: 0.8rem 0;
+        border-bottom: none;
+      }
+      .spec-cell:nth-child(2),
+      .spec-cell:nth-child(3) {
+        border: none;
+        padding-top: 0;
+        padding-bottom: 1.2rem;
+      }
+      .spec-row:last-child .spec-cell:last-child { border-bottom: 1px solid var(--rule); }
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+      .project-grid > :nth-child(3) { grid-column: 1; }
+      .about__layout {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+      }
+      .about__title { text-align: left; }
+      .contact__layout {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+      }
+      .contact__label { text-align: left; }
+      .footer__inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+    }
+
+    @media (max-width: 414px) {
+      .nav-pill {
+        padding: 0.3rem 0.3rem 0.3rem 0.9rem;
+        width: 100%;
+        justify-content: space-between;
+      }
+      .hero__headline {
+        font-size: clamp(2.4rem, 12vw, 3.2rem);
+      }
+      .hero__stat-value {
+        font-size: clamp(3rem, 14vw, 4rem);
+      }
+      .project-card {
+        padding: 1.4rem;
+      }
+    }
+
+    @media (max-width: 375px) {
+      .hero__headline { font-size: 2.2rem; }
+      .hero__stat-value { font-size: 2.8rem; }
+      .stat-strip__num { font-size: 1.3rem; }
+    }
+
+    @media (max-width: 320px) {
+      :root { --pad-x: 1rem; }
+      .hero__headline { font-size: 2rem; }
+      .nav-pill { padding: 0.25rem 0.25rem 0.25rem 0.75rem; }
     }
   </style>
-  <noscript><style>.fade-up { opacity: 1; transform: none; }</style></noscript>
+  <noscript><style>.tick-reveal { opacity: 1; transform: none; }</style></noscript>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -598,11 +649,12 @@
   </script>
 </head>
 <body>
-  <div class="scroll-progress" aria-hidden="true"></div>
 
-  <!-- ── NAV ───────────────────────────────────────────── -->
-  <nav class="site-nav" aria-label="Main navigation">
-    <div class="nav__inner container">
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ── N5 Floating pill nav ──────────────────────────── -->
+  <div class="nav-wrap">
+    <nav class="nav-pill" aria-label="Main navigation">
       <a class="nav__logo" href="#home">trinetryinfotech.com</a>
       <ul class="nav__links" role="list">
         <li><a class="nav__link" href="#services">Services</a></li>
@@ -611,115 +663,125 @@
         <li><a class="nav__link" href="#contact">Contact</a></li>
       </ul>
       <button class="nav__hamburger" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+          <line x1="4" y1="6" x2="16" y2="6"/>
+          <line x1="4" y1="10" x2="16" y2="10"/>
+          <line x1="4" y1="14" x2="16" y2="14"/>
+        </svg>
       </button>
-    </div>
-  </nav>
+    </nav>
+  </div>
 
-  <!-- ── NAV OVERLAY (mobile) ──────────────────────────── -->
-  <div class="nav__overlay" aria-hidden="true" role="dialog" aria-label="Navigation menu">
-    <ul class="nav__overlay-links" role="list">
-      <li><a class="nav__overlay-link" href="#services">Services</a></li>
-      <li><a class="nav__overlay-link" href="#projects">Projects</a></li>
-      <li><a class="nav__overlay-link" href="#about">About</a></li>
-      <li><a class="nav__overlay-link" href="#contact">Contact</a></li>
+  <!-- nav overlay (mobile) -->
+  <div class="nav-overlay" aria-hidden="true" role="dialog" aria-label="Navigation menu">
+    <ul class="nav-overlay__links" role="list">
+      <li><a class="nav-overlay__link" href="#services">Services</a></li>
+      <li><a class="nav-overlay__link" href="#projects">Projects</a></li>
+      <li><a class="nav-overlay__link" href="#about">About</a></li>
+      <li><a class="nav-overlay__link" href="#contact">Contact</a></li>
     </ul>
   </div>
 
-  <!-- ── HERO ──────────────────────────────────────────── -->
-  <section class="hero" id="home">
-    <div class="container">
-      <p class="hero__eyebrow fade-up">trinetryinfotech.com</p>
-      <h1 class="hero__headline fade-up">Intelligence,<br><em>Engineered.</em></h1>
-      <p class="hero__sub fade-up">AI &middot; ML &middot; Quantitative Systems &middot; Consulting</p>
-    </div>
-  </section>
+  <main id="main">
 
-  <!-- ── METRICS ─────────────────────────────────────── -->
-  <div class="metrics fade-up">
+  <!-- ── H4 Stat-led hero ───────────────────────────────── -->
+  <section class="hero" id="home" aria-label="Hero">
     <div class="container">
-      <div class="metrics__row">
-        <div class="metrics__item">
-          <p class="metrics__value">3</p>
-          <p class="metrics__label">Products Shipped</p>
+      <div class="hero__grid">
+        <p class="hero__label">trinetryinfotech.com</p>
+        <div class="hero__text">
+          <h1 class="hero__headline">Intelligence,<br><span class="hero__headline-accent">Engineered.</span></h1>
+          <p class="hero__sub">AI &middot; ML &middot; Quantitative Systems &middot; Consulting</p>
         </div>
-        <div class="metrics__item">
-          <p class="metrics__value">10+</p>
-          <p class="metrics__label">ML Models Deployed</p>
-        </div>
-        <div class="metrics__item">
-          <p class="metrics__value">45+</p>
-          <p class="metrics__label">Knowledge Modules</p>
+        <div class="hero__stat tick-reveal" id="heroStat">
+          <p class="hero__stat-value" id="heroStatNum">45+</p>
+          <p class="hero__stat-label">Knowledge Modules</p>
+          <p class="hero__stat-qualifier">Spanning 10+ ML models across 3 products</p>
         </div>
       </div>
     </div>
-  </div>
-  <hr class="rule" />
+  </section>
 
-  <!-- ── SERVICES ───────────────────────────────────────── -->
+  <!-- ── T4 Numbered stat strip ─────────────────────────── -->
+  <div class="container">
+    <hr class="stat-strip__rule" />
+    <div class="stat-strip" aria-label="Key metrics">
+      <div class="stat-strip__item">
+        <span class="stat-strip__num">3</span>
+        <span class="stat-strip__desc">Products Shipped</span>
+      </div>
+      <div class="stat-strip__item">
+        <span class="stat-strip__num">10+</span>
+        <span class="stat-strip__desc">ML Models Deployed</span>
+      </div>
+      <div class="stat-strip__item">
+        <span class="stat-strip__num">45+</span>
+        <span class="stat-strip__desc">Knowledge Modules</span>
+      </div>
+    </div>
+    <hr class="stat-strip__rule" />
+  </div>
+
+  <!-- ── F3 Tabular spec sheet (services) ──────────────── -->
   <section class="services" id="services" aria-labelledby="services-heading">
     <div class="container">
-      <h2 class="section-label" id="services-heading">Services</h2>
-      <div class="services__grid">
+      <header class="section-head">
+        <span class="section-head__num" aria-hidden="true">01</span>
+        <h2 class="section-head__title" id="services-heading">Services</h2>
+      </header>
+      <div class="spec-table" role="table" aria-label="Services specification">
+        <div class="spec-header" role="columnheader">Service</div>
+        <div class="spec-header" role="columnheader">Expertise</div>
+        <div class="spec-header" role="columnheader">Approach</div>
 
-        <article class="service-item fade-up">
-          <span class="service-item__num" aria-hidden="true">01</span>
-          <div class="service-item__body">
-            <h3 class="service-item__title">AI/ML Model Development</h3>
-            <p class="service-item__desc">End-to-end design, training, and deployment of machine learning models tailored to your domain.</p>
-          </div>
-        </article>
+        <div class="spec-row" role="row">
+          <div class="spec-cell" role="cell">AI/ML Model Development</div>
+          <div class="spec-cell" role="cell">End-to-end model design, training, and deployment tailored to your domain.</div>
+          <div class="spec-cell" role="cell">Research-first, production-grade, with rigorous evaluation.</div>
+        </div>
 
-        <article class="service-item fade-up">
-          <span class="service-item__num" aria-hidden="true">02</span>
-          <div class="service-item__body">
-            <h3 class="service-item__title">Quantitative Trading Systems</h3>
-            <p class="service-item__desc">Research-grade algorithmic strategies, backtesting infrastructure, and live execution pipelines.</p>
-          </div>
-        </article>
+        <div class="spec-row" role="row">
+          <div class="spec-cell" role="cell">Quantitative Trading Systems</div>
+          <div class="spec-cell" role="cell">Algorithmic strategies, backtesting infrastructure, and live execution pipelines.</div>
+          <div class="spec-cell" role="cell">Data-driven, statistically validated, built for reliability.</div>
+        </div>
 
-        <article class="service-item fade-up">
-          <span class="service-item__num" aria-hidden="true">03</span>
-          <div class="service-item__body">
-            <h3 class="service-item__title">Data Engineering &amp; Analytics</h3>
-            <p class="service-item__desc">Scalable data pipelines, warehousing, and intelligence layers that turn raw data into decisions.</p>
-          </div>
-        </article>
+        <div class="spec-row" role="row">
+          <div class="spec-cell" role="cell">Data Engineering &amp; Analytics</div>
+          <div class="spec-cell" role="cell">Scalable pipelines, warehousing, and intelligence layers from raw data.</div>
+          <div class="spec-cell" role="cell">Architected for scale, designed for clarity.</div>
+        </div>
 
-        <article class="service-item fade-up">
-          <span class="service-item__num" aria-hidden="true">04</span>
-          <div class="service-item__body">
-            <h3 class="service-item__title">Custom Software &amp; Tech Consulting</h3>
-            <p class="service-item__desc">Bespoke engineering solutions and strategic technology advisory for complex business problems.</p>
-          </div>
-        </article>
+        <div class="spec-row" role="row">
+          <div class="spec-cell" role="cell">Custom Software &amp; Consulting</div>
+          <div class="spec-cell" role="cell">Bespoke solutions and strategic technology advisory for complex problems.</div>
+          <div class="spec-cell" role="cell">First-principles thinking, pragmatic delivery.</div>
+        </div>
 
-        <article class="service-item fade-up">
-          <span class="service-item__num" aria-hidden="true">05</span>
-          <div class="service-item__body">
-            <h3 class="service-item__title">Research &amp; Prototyping</h3>
-            <p class="service-item__desc">Rapid experimentation and proof-of-concept development at the frontier of AI and quantitative methods.</p>
-          </div>
-        </article>
-
+        <div class="spec-row" role="row">
+          <div class="spec-cell" role="cell">Research &amp; Prototyping</div>
+          <div class="spec-cell" role="cell">Rapid experimentation and PoC development at the frontier of AI and quant methods.</div>
+          <div class="spec-cell" role="cell">Fast iteration, clear documentation, informed by domain expertise.</div>
+        </div>
       </div>
     </div>
   </section>
-  <hr class="rule" />
 
-  <!-- ── PROJECTS ──────────────────────────────────────── -->
+  <hr class="rule-full" />
+
+  <!-- ── F6 Product card grid (projects) ───────────────── -->
   <section class="projects" id="projects" aria-labelledby="projects-heading">
     <div class="container">
-      <h2 class="section-label" id="projects-heading">Projects</h2>
-      <div class="projects__grid">
+      <header class="section-head">
+        <span class="section-head__num" aria-hidden="true">02</span>
+        <h2 class="section-head__title" id="projects-heading">Projects</h2>
+      </header>
+      <div class="project-grid">
 
-        <!-- Gyanmarg -->
-        <article class="project-card fade-up">
-          <div class="project-card__header">
-            <p class="project-card__sanskrit">ज्ञानमार्ग</p>
-            <h3 class="project-card__name">Gyanmarg</h3>
-            <p class="project-card__tagline"><em>Transform ancient wisdom into modern mastery</em></p>
-          </div>
+        <article class="project-card">
+          <p class="project-card__sanskrit">ज्ञानमार्ग</p>
+          <h3 class="project-card__name">Gyanmarg</h3>
+          <p class="project-card__tagline">Transform ancient wisdom into modern mastery.</p>
           <hr class="project-card__rule" />
           <p class="project-card__desc">Gamified learning platform with spaced repetition, active recall, and 10 curated knowledge modules drawn from 45+ books.</p>
           <ul class="project-card__pills" aria-label="Features">
@@ -732,13 +794,10 @@
           <a class="project-card__link" href="https://gyanmarg-963362833537.us-central1.run.app" target="_blank" rel="noopener noreferrer">View Project &rarr;</a>
         </article>
 
-        <!-- Pratyaksha -->
-        <article class="project-card fade-up">
-          <div class="project-card__header">
-            <p class="project-card__sanskrit">प्रत्यक्ष</p>
-            <h3 class="project-card__name">Pratyaksha</h3>
-            <p class="project-card__tagline"><em>See Your Mind. Clearly.</em></p>
-          </div>
+        <article class="project-card">
+          <p class="project-card__sanskrit">प्रत्यक्ष</p>
+          <h3 class="project-card__name">Pratyaksha</h3>
+          <p class="project-card__tagline">See Your Mind. Clearly.</p>
           <hr class="project-card__rule" />
           <p class="project-card__desc">Cognitive journaling dashboard with a 4-agent AI pipeline for emotion mapping, theme detection, and actionable insights.</p>
           <ul class="project-card__pills" aria-label="Features">
@@ -751,13 +810,10 @@
           <a class="project-card__link" href="https://pratyaksha-963362833537.asia-south1.run.app" target="_blank" rel="noopener noreferrer">View Project &rarr;</a>
         </article>
 
-        <!-- CryptoPrism -->
-        <article class="project-card fade-up">
-          <div class="project-card__header">
-            <p class="project-card__sanskrit">Quantitative Intelligence</p>
-            <h3 class="project-card__name">CryptoPrism</h3>
-            <p class="project-card__tagline"><em>See the market through every angle</em></p>
-          </div>
+        <article class="project-card">
+          <p class="project-card__sanskrit">Quantitative Intelligence</p>
+          <h3 class="project-card__name">CryptoPrism</h3>
+          <p class="project-card__tagline">See the market through every angle.</p>
           <hr class="project-card__rule" />
           <p class="project-card__desc">Quantitative cryptocurrency trading platform with real-time ETL monitoring, sentiment-based backtesting, and automated data pipelines.</p>
           <ul class="project-card__pills" aria-label="Features">
@@ -773,34 +829,39 @@
       </div>
     </div>
   </section>
-  <hr class="rule" />
 
-  <!-- ── ABOUT ──────────────────────────────────────────── -->
+  <hr class="rule-full" />
+
+  <!-- ── S2 Hanging about ──────────────────────────────── -->
   <section class="about" id="about" aria-labelledby="about-heading">
     <div class="container">
-      <h2 class="section-label" id="about-heading">About</h2>
-      <div class="about__inner fade-up">
+      <div class="about__layout">
+        <h2 class="about__title" id="about-heading">About</h2>
         <p class="about__text">
           Trinetry Infotech is a specialist technology firm at the intersection of artificial intelligence, quantitative research, and software engineering. We partner with organisations to build intelligent systems that are rigorous, scalable, and grounded in first principles.
         </p>
       </div>
     </div>
   </section>
-  <hr class="rule" />
 
-  <!-- ── CONTACT ────────────────────────────────────────── -->
+  <hr class="rule-full" />
+
+  <!-- ── C3 Typographic contact ────────────────────────── -->
   <section class="contact" id="contact" aria-labelledby="contact-heading">
-    <div class="container contact__inner fade-up">
-      <h2 class="contact__label" id="contact-heading">Start a Conversation</h2>
-      <a class="contact__email" href="mailto:yogesh.sahu@trinetryinfotech.com">yogesh.sahu@trinetryinfotech.com</a>
+    <div class="container">
+      <div class="contact__layout">
+        <h2 class="contact__label" id="contact-heading">Contact</h2>
+        <a class="contact__email" href="mailto:yogesh.sahu@trinetryinfotech.com">yogesh.sahu@trinetryinfotech.com</a>
+      </div>
     </div>
   </section>
 
-  <!-- ── BUILT WITH ─────────────────────────────────────── -->
+  </main>
+
+  <!-- ── T2 Logo wall ──────────────────────────────────── -->
   <div class="built-with">
     <div class="container">
-      <p class="built-with__label">Built With</p>
-      <div class="built-with__row">
+      <div class="built-with__inner">
         <span class="built-with__item">Google Cloud</span>
         <span class="built-with__item">React</span>
         <span class="built-with__item">Python</span>
@@ -811,98 +872,75 @@
     </div>
   </div>
 
-  <!-- ── FOOTER ─────────────────────────────────────────── -->
+  <!-- ── Ft5 Statement footer ──────────────────────────── -->
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2026 trinetryinfotech.com &mdash; All rights reserved.</p>
+      <div class="footer__inner">
+        <p class="footer__tagline"><span class="footer__tagline-accent">Intelligence,</span> Engineered.</p>
+        <p class="footer__copy">&copy; 2026 trinetryinfotech.com</p>
+      </div>
     </div>
   </footer>
 
-  <button class="back-to-top" aria-label="Back to top">&uarr;</button>
-
   <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12 });
+    /* ── Single number-tick reveal ───────────────────────── */
+    (function() {
+      const statEl = document.getElementById('heroStat');
+      if (!statEl) return;
 
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-    // Nav scroll border
-    const nav = document.querySelector('.site-nav');
-    if (nav) {
-      window.addEventListener('scroll', () => {
-        nav.classList.toggle('nav--scrolled', window.scrollY > 60);
-      }, { passive: true });
-    }
-
-    // Active nav link via IntersectionObserver
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav__link');
-    if (sections.length && navLinks.length) {
-      const sectionObserver = new IntersectionObserver((entries) => {
+      const obs = new IntersectionObserver((entries) => {
         entries.forEach(e => {
           if (e.isIntersecting) {
-            navLinks.forEach(l => l.classList.remove('active'));
+            statEl.classList.add('visible');
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.3 });
+      obs.observe(statEl);
+    })();
+
+    /* ── Nav scroll shadow ──────────────────────────────── */
+    (function() {
+      const pill = document.querySelector('.nav-pill');
+      if (!pill) return;
+      window.addEventListener('scroll', () => {
+        pill.classList.toggle('nav--scrolled', window.scrollY > 80);
+      }, { passive: true });
+    })();
+
+    /* ── Active nav link via IntersectionObserver ────────── */
+    (function() {
+      const sections = document.querySelectorAll('section[id]');
+      const links = document.querySelectorAll('.nav__link');
+      if (!sections.length || !links.length) return;
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            links.forEach(l => l.classList.remove('active'));
             const active = document.querySelector(`.nav__link[href="#${e.target.id}"]`);
             if (active) active.classList.add('active');
           }
         });
       }, { threshold: 0.4 });
-      sections.forEach(s => sectionObserver.observe(s));
-    }
+      sections.forEach(s => obs.observe(s));
+    })();
 
-    // Hamburger menu
-    const hamburger = document.querySelector('.nav__hamburger');
-    const overlay = document.querySelector('.nav__overlay');
-    const overlayLinks = document.querySelectorAll('.nav__overlay-link');
-    if (hamburger && overlay) {
-      hamburger.addEventListener('click', () => {
-        const open = hamburger.classList.toggle('open');
-        hamburger.setAttribute('aria-expanded', open);
+    /* ── Hamburger menu ──────────────────────────────────── */
+    (function() {
+      const ham = document.querySelector('.nav__hamburger');
+      const overlay = document.querySelector('.nav-overlay');
+      const overlayLinks = document.querySelectorAll('.nav-overlay__link');
+      if (!ham || !overlay) return;
+      const toggle = (open) => {
+        ham.setAttribute('aria-expanded', open);
         overlay.classList.toggle('open', open);
         overlay.setAttribute('aria-hidden', !open);
-        if (open) {
-          const firstLink = overlay.querySelector('.nav__overlay-link');
-          if (firstLink) firstLink.focus();
-        } else {
-          hamburger.focus();
-        }
-      });
+      };
+      ham.addEventListener('click', () => toggle(ham.getAttribute('aria-expanded') !== 'true'));
       overlayLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          hamburger.classList.remove('open');
-          hamburger.setAttribute('aria-expanded', false);
-          overlay.classList.remove('open');
-          overlay.setAttribute('aria-hidden', true);
-          hamburger.focus();
-        });
+        link.addEventListener('click', () => toggle(false));
       });
-    }
-
-    // Scroll progress bar
-    const progressBar = document.querySelector('.scroll-progress');
-    if (progressBar) {
-      window.addEventListener('scroll', () => {
-        const h = document.documentElement.scrollHeight - window.innerHeight;
-        progressBar.style.width = h > 0 ? (window.scrollY / h * 100) + '%' : '0%';
-      }, { passive: true });
-    }
-
-    // Back-to-top button
-    const backToTop = document.querySelector('.back-to-top');
-    if (backToTop) {
-      window.addEventListener('scroll', () => {
-        backToTop.classList.toggle('visible', window.scrollY > window.innerHeight);
-      }, { passive: true });
-      backToTop.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    }
+    })();
   </script>
 </body>
 </html>
