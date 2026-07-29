@@ -11,7 +11,8 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Trinetry Infotech — Intelligence, Engineered." />
   <meta name="twitter:description" content="AI engineering · quant systems · data infrastructure. DPIIT-recognised, 3 products shipped." />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23181612'/%3E%3Ctext x='50' y='76' font-size='72' font-family='Geist,Mono,monospace' fill='%23E8E2D6' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" href="/favicon.svg" />
+  <link rel="alternate icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23181612'/%3E%3Ctext x='50' y='76' font-size='72' font-family='Geist,Mono,monospace' fill='%23E8E2D6' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E" />
   <title>Trinetry Infotech — Intelligence, Engineered.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -70,11 +71,14 @@
     }
     .nav-pill.nav--scrolled { box-shadow: 0 1px 16px rgba(0,0,0,0.25); }
     .nav__logo {
+      display: inline-flex; align-items: center; gap: 0.5rem;
       font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em;
       text-transform: uppercase; color: var(--muted);
       text-decoration: none; margin-right: 0.75rem; white-space: nowrap;
     }
     .nav__logo:hover { color: var(--ink); }
+    .nav__logo:hover .nav__logo-mark { opacity: 1; }
+    .nav__logo-mark { width: 16px; height: 16px; opacity: 0.55; transition: opacity 0.2s; }
     .nav__links { display: flex; align-items: center; gap: 0.15rem; list-style: none; }
     .nav__link {
       font-size: 0.7rem; font-weight: 500; letter-spacing: 0.15em;
@@ -344,7 +348,16 @@
 <!-- ── Nav ────────────────────────────────────────────── -->
 <div class="nav-wrap">
   <nav class="nav-pill" aria-label="Main navigation">
-    <a class="nav__logo" href="#home">trinetryinfotech.com</a>
+    <a class="nav__logo" href="#home">
+      <svg class="nav__logo-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <rect x="3" y="3" width="58" height="58" rx="4" stroke="currentColor" stroke-width="2.5" fill="none" opacity="0.3"/>
+        <circle cx="32" cy="32" r="23" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.2"/>
+        <polygon points="32,13 45,42 19,42" stroke="currentColor" stroke-width="1.8" fill="none"/>
+        <polygon points="32,51 45,22 19,22" stroke="currentColor" stroke-width="1.8" fill="none"/>
+        <circle cx="32" cy="32" r="3" fill="currentColor"/>
+      </svg>
+      trinetryinfotech.com
+    </a>
     <ul class="nav__links" role="list">
       <li><a class="nav__link" href="#services">Services</a></li>
       <li><a class="nav__link" href="#projects">Projects</a></li>
@@ -378,10 +391,19 @@
   <div class="cell cell--span2" id="home">
     <div class="glyph-wrap glyph-wrap--hero" aria-hidden="true">
       <svg viewBox="0 0 56 56" fill="none">
-        <polygon points="28,6 50,46 6,46" stroke="var(--accent)" stroke-width="0.8" fill="none" class="anim-spin" opacity="0.3" />
-        <polygon points="28,12 44,44 12,44" stroke="var(--accent)" stroke-width="0.8" fill="none" class="anim-spin" style="animation-direction: reverse; animation-duration: 20s;" opacity="0.5" />
-        <polygon points="28,18 38,42 18,42" stroke="var(--accent)" stroke-width="1" fill="none" class="anim-spin" style="animation-duration: 24s;" />
-        <circle cx="28" cy="28" r="2" fill="var(--accent)" class="anim-pulse-dot" />
+        <!-- Bhupura — outer square (earth element) -->
+        <rect x="2" y="2" width="52" height="52" rx="3" stroke="var(--accent)" stroke-width="0.6" fill="none" opacity="0.2" />
+        <rect x="5" y="5" width="46" height="46" rx="2" stroke="var(--accent)" stroke-width="0.4" fill="none" opacity="0.12" />
+        <!-- Lotus circle -->
+        <circle cx="28" cy="28" r="23" stroke="var(--accent)" stroke-width="0.5" fill="none" opacity="0.15" />
+        <!-- Tripura — three interlocking fortresses -->
+        <polygon points="28,6 50,46 6,46" stroke="var(--accent)" stroke-width="0.8" fill="none" class="anim-spin" opacity="0.3" style="animation-duration: 32s;" />
+        <polygon points="28,12 44,44 12,44" stroke="var(--accent)" stroke-width="0.8" fill="none" class="anim-spin" style="animation-direction: reverse; animation-duration: 24s;" opacity="0.5" />
+        <polygon points="28,18 38,42 18,42" stroke="var(--accent)" stroke-width="1" fill="none" class="anim-spin" style="animation-duration: 18s;" />
+        <!-- Pulsing ring (energetic field) -->
+        <circle cx="28" cy="28" r="6" stroke="var(--accent)" stroke-width="0.6" fill="none" class="anim-pulse-ring" />
+        <!-- Central bindu -->
+        <circle cx="28" cy="28" r="2.5" fill="var(--accent)" class="anim-pulse-dot" />
       </svg>
     </div>
     <p class="cell__overline">trinetryinfotech.com</p>
