@@ -487,12 +487,29 @@
   <div class="cell cell--span2">
     <div class="glyph-wrap glyph-wrap--project" aria-hidden="true">
       <svg viewBox="0 0 52 52" fill="none">
-        <path d="M8,12 L26,12 L26,42 L8,42 Z" stroke="var(--accent)" stroke-width="1" fill="none" opacity="0.4" />
-        <path d="M26,12 L44,12 L44,42 L26,42 Z" stroke="var(--accent)" stroke-width="1" fill="none" class="anim-float" />
-        <path d="M26,14 Q30,16 34,18" stroke="var(--accent)" stroke-width="0.6" fill="none" class="anim-book-glow" />
-        <line x1="26" y1="12" x2="26" y2="42" stroke="var(--accent)" stroke-width="0.8" />
-        <circle cx="36" cy="36" r="1.5" fill="var(--accent)" class="anim-pulse-dot" style="animation-delay: 0.5s" />
-        <circle cx="40" cy="32" r="1" fill="var(--accent)" class="anim-pulse-dot" style="animation-delay: 1s" />
+        <!-- Hexagon frame -->
+        <polygon points="26,5 44,14 44,38 26,47 8,38 8,14" stroke="var(--accent)" stroke-width="0.9" fill="none" class="anim-float" />
+        <!-- Inner hexagon -->
+        <polygon points="26,12 37,18 37,34 26,40 15,34 15,18" stroke="var(--accent)" stroke-width="0.5" fill="none" opacity="0.2" />
+        <!-- Orbital rings -->
+        <ellipse cx="26" cy="26" rx="16" ry="5" stroke="var(--accent)" stroke-width="0.5" fill="none" opacity="0.45" class="anim-spin" style="animation-duration: 18s;" />
+        <ellipse cx="26" cy="26" rx="16" ry="5" stroke="var(--accent)" stroke-width="0.5" fill="none" opacity="0.45" class="anim-spin" style="animation-duration: 18s; animation-delay: -4.5s;" />
+        <!-- Neural connections -->
+        <line x1="26" y1="26" x2="26" y2="12" stroke="var(--accent)" stroke-width="0.4" opacity="0.35" />
+        <line x1="26" y1="26" x2="37" y2="18" stroke="var(--accent)" stroke-width="0.4" opacity="0.35" />
+        <line x1="26" y1="26" x2="37" y2="34" stroke="var(--accent)" stroke-width="0.4" opacity="0.35" />
+        <line x1="26" y1="26" x2="26" y2="40" stroke="var(--accent)" stroke-width="0.4" opacity="0.35" />
+        <line x1="26" y1="26" x2="15" y2="34" stroke="var(--accent)" stroke-width="0.4" opacity="0.35" />
+        <line x1="26" y1="26" x2="15" y2="18" stroke="var(--accent)" stroke-width="0.4" opacity="0.35" />
+        <!-- Central knowledge node -->
+        <circle cx="26" cy="26" r="3" fill="var(--accent)" class="anim-pulse-dot" />
+        <!-- Vertex nodes -->
+        <circle cx="26" cy="12" r="1.5" fill="var(--accent)" opacity="0.5" />
+        <circle cx="37" cy="18" r="1.5" fill="var(--accent)" opacity="0.5" />
+        <circle cx="37" cy="34" r="1.5" fill="var(--accent)" opacity="0.5" />
+        <circle cx="26" cy="40" r="1.5" fill="var(--accent)" opacity="0.5" />
+        <circle cx="15" cy="34" r="1.5" fill="var(--accent)" opacity="0.5" />
+        <circle cx="15" cy="18" r="1.5" fill="var(--accent)" opacity="0.5" />
       </svg>
     </div>
     <p class="project__badge">Gyanmarg &mdash; ज्ञानमार्ग</p>
@@ -510,9 +527,15 @@
   <div class="cell cell--span2">
     <div class="glyph-wrap glyph-wrap--project" aria-hidden="true">
       <svg viewBox="0 0 52 52" fill="none">
-        <path d="M4,26 C4,14 16,8 26,8 C36,8 48,14 48,26 C48,38 36,44 26,44 C16,44 4,38 4,26 Z" stroke="var(--accent)" stroke-width="1" fill="none" class="anim-float" />
-        <path d="M12,26 C12,18 20,14 26,14 C32,14 40,18 40,26 C40,34 32,38 26,38 C20,38 12,34 12,26 Z" stroke="var(--accent)" stroke-width="0.5" fill="none" opacity="0.3" />
-        <circle cx="26" cy="26" r="4" fill="var(--accent)" opacity="0.4" class="anim-pulse-dot" />
+        <!-- Brain silhouette -->
+        <path d="M26,14 C20,10 10,12 8,22 C6,30 12,38 18,38 C22,38 24,34 26,32 C28,34 30,38 34,38 C40,38 46,30 44,22 C42,12 32,10 26,14 Z" stroke="var(--accent)" stroke-width="0.9" fill="none" class="anim-float" />
+        <!-- Longitudinal fissure -->
+        <line x1="26" y1="14" x2="26" y2="32" stroke="var(--accent)" stroke-width="0.4" opacity="0.25" />
+        <!-- Center awareness point -->
+        <circle cx="26" cy="23" r="3" fill="var(--accent)" class="anim-pulse-dot" />
+        <!-- EEG thought waves -->
+        <path d="M8,40 Q12,36 16,40 T24,40 T32,40 T40,40 T48,40" stroke="var(--accent)" stroke-width="0.5" fill="none" opacity="0.35" class="anim-prism-beam" />
+        <path d="M10,44 Q14,40 18,44 T26,44 T34,44 T42,44" stroke="var(--accent)" stroke-width="0.5" fill="none" opacity="0.2" class="anim-prism-beam" style="animation-delay: 1s" />
       </svg>
     </div>
     <p class="project__badge">Pratyaksha &mdash; प्रत्यक्ष</p>
@@ -529,14 +552,23 @@
   <div class="cell cell--full">
     <div class="glyph-wrap glyph-wrap--project" aria-hidden="true">
       <svg viewBox="0 0 52 52" fill="none">
-        <polygon points="26,6 48,44 4,44" stroke="var(--accent)" stroke-width="1" fill="none" class="anim-spin" style="animation-duration: 24s;" />
-        <line x1="26" y1="6" x2="26" y2="44" stroke="var(--accent)" stroke-width="0.4" opacity="0.3" />
-        <line x1="14" y1="28" x2="38" y2="28" stroke="var(--accent)" stroke-width="0.4" opacity="0.3" />
-        <line x1="26" y1="6" x2="14" y2="44" stroke="var(--accent)" stroke-width="0.6" opacity="0.4" class="anim-prism-beam" />
-        <line x1="26" y1="6" x2="38" y2="44" stroke="var(--accent)" stroke-width="0.6" opacity="0.4" class="anim-prism-beam" style="animation-delay: 1s" />
+        <!-- Prism body (two faces matching brand logo) -->
+        <g class="anim-float">
+          <polygon points="26,6 10,43 26,39" stroke="var(--accent)" stroke-width="0.8" fill="none" opacity="0.55" />
+          <polygon points="26,6 42,43 26,39" stroke="var(--accent)" stroke-width="0.8" fill="none" />
+          <line x1="26" y1="6" x2="26" y2="39" stroke="var(--accent)" stroke-width="0.5" opacity="0.35" />
+          <line x1="10" y1="43" x2="42" y2="43" stroke="var(--accent)" stroke-width="0.5" opacity="0.25" />
+        </g>
+        <!-- Light entrance -->
         <circle cx="26" cy="6" r="2" fill="var(--accent)" class="anim-pulse-dot" />
-        <circle cx="15" cy="40" r="1" fill="var(--accent)" class="anim-pulse-dot" style="animation-delay: 0.5s" />
-        <circle cx="37" cy="40" r="1" fill="var(--accent)" class="anim-pulse-dot" style="animation-delay: 1s" />
+        <!-- Refraction beams -->
+        <line x1="26" y1="6" x2="14" y2="36" stroke="var(--accent)" stroke-width="0.5" opacity="0.45" class="anim-prism-beam" />
+        <line x1="26" y1="6" x2="38" y2="36" stroke="var(--accent)" stroke-width="0.5" opacity="0.45" class="anim-prism-beam" style="animation-delay: 1s" />
+        <line x1="26" y1="6" x2="26" y2="37" stroke="var(--accent)" stroke-width="0.5" opacity="0.3" class="anim-prism-beam" style="animation-delay: 0.5s" />
+        <!-- Spectrum emergence dots -->
+        <circle cx="14" cy="38" r="1.2" fill="var(--accent)" class="anim-pulse-dot" style="animation-delay: 0.3s" />
+        <circle cx="26" cy="37" r="1.2" fill="var(--accent)" class="anim-pulse-dot" style="animation-delay: 0.6s" />
+        <circle cx="38" cy="38" r="1.2" fill="var(--accent)" class="anim-pulse-dot" style="animation-delay: 0.9s" />
       </svg>
     </div>
     <p class="project__badge">CryptoPrism &mdash; On-Chain Quantitative Intelligence</p>
