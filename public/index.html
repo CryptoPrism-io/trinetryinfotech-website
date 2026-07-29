@@ -547,29 +547,39 @@
   <div class="cell cell--span2">
     <div class="glyph-wrap glyph-wrap--project" aria-hidden="true">
       <svg viewBox="0 0 52 52" fill="none">
-        <!-- Hexagon frame -->
-        <polygon points="26,5 44,14 44,38 26,47 8,38 8,14" stroke="var(--accent)" stroke-width="0.9" fill="none" class="anim-float" />
+        <!-- Mandala rings (depth) -->
+        <circle cx="26" cy="26" r="20" stroke="var(--accent)" stroke-width="0.3" fill="none" opacity="0.08" stroke-dasharray="2 4" />
+        <circle cx="26" cy="26" r="15" stroke="var(--accent)" stroke-width="0.25" fill="none" opacity="0.06" />
+        <!-- Outer hexagon (system boundary) -->
+        <polygon points="26,5 44,14 44,38 26,47 8,38 8,14" stroke="var(--accent)" stroke-width="0.85" fill="none" />
         <!-- Inner hexagon -->
-        <polygon points="26,12 37,18 37,34 26,40 15,34 15,18" stroke="var(--accent)" stroke-width="0.5" fill="none" opacity="0.2" />
-        <!-- Orbital rings -->
-        <ellipse cx="26" cy="26" rx="16" ry="5" stroke="var(--accent)" stroke-width="0.5" fill="none" opacity="0.45" class="anim-spin" style="animation-duration: 18s;" />
-        <ellipse cx="26" cy="26" rx="16" ry="5" stroke="var(--accent)" stroke-width="0.5" fill="none" opacity="0.45" class="anim-spin" style="animation-duration: 18s; animation-delay: -4.5s;" />
-        <!-- Neural connections -->
-        <line x1="26" y1="26" x2="26" y2="12" stroke="var(--accent)" stroke-width="0.4" opacity="0.35" />
-        <line x1="26" y1="26" x2="37" y2="18" stroke="var(--accent)" stroke-width="0.4" opacity="0.35" />
-        <line x1="26" y1="26" x2="37" y2="34" stroke="var(--accent)" stroke-width="0.4" opacity="0.35" />
-        <line x1="26" y1="26" x2="26" y2="40" stroke="var(--accent)" stroke-width="0.4" opacity="0.35" />
-        <line x1="26" y1="26" x2="15" y2="34" stroke="var(--accent)" stroke-width="0.4" opacity="0.35" />
-        <line x1="26" y1="26" x2="15" y2="18" stroke="var(--accent)" stroke-width="0.4" opacity="0.35" />
+        <polygon points="26,12 37,18 37,34 26,40 15,34 15,18" stroke="var(--accent)" stroke-width="0.4" fill="none" opacity="0.15" />
+        <!-- Lotus petals (8 petals from 4 rotated ellipses) -->
+        <g opacity="0.18">
+          <ellipse cx="26" cy="16" rx="3.5" ry="9" stroke="var(--accent)" stroke-width="0.5" fill="none" />
+          <ellipse cx="26" cy="16" rx="3.5" ry="9" stroke="var(--accent)" stroke-width="0.5" fill="none" transform="rotate(45 26 26)" />
+          <ellipse cx="26" cy="16" rx="3.5" ry="9" stroke="var(--accent)" stroke-width="0.5" fill="none" transform="rotate(90 26 26)" />
+          <ellipse cx="26" cy="16" rx="3.5" ry="9" stroke="var(--accent)" stroke-width="0.5" fill="none" transform="rotate(135 26 26)" />
+        </g>
+        <!-- Neural orbital rings -->
+        <ellipse cx="26" cy="26" rx="16" ry="5" stroke="var(--accent)" stroke-width="0.5" fill="none" opacity="0.35" class="anim-spin" style="animation-duration: 18s;" />
+        <ellipse cx="26" cy="26" rx="16" ry="5" stroke="var(--accent)" stroke-width="0.5" fill="none" opacity="0.35" class="anim-spin" style="animation-duration: 18s; animation-delay: -4.5s;" />
+        <!-- Neural connections (spokes) -->
+        <line x1="26" y1="26" x2="26" y2="12" stroke="var(--accent)" stroke-width="0.35" opacity="0.3" />
+        <line x1="26" y1="26" x2="37" y2="18" stroke="var(--accent)" stroke-width="0.35" opacity="0.3" />
+        <line x1="26" y1="26" x2="37" y2="34" stroke="var(--accent)" stroke-width="0.35" opacity="0.3" />
+        <line x1="26" y1="26" x2="26" y2="40" stroke="var(--accent)" stroke-width="0.35" opacity="0.3" />
+        <line x1="26" y1="26" x2="15" y2="34" stroke="var(--accent)" stroke-width="0.35" opacity="0.3" />
+        <line x1="26" y1="26" x2="15" y2="18" stroke="var(--accent)" stroke-width="0.35" opacity="0.3" />
+        <!-- Neural vertex nodes -->
+        <circle cx="26" cy="12" r="1.5" fill="var(--accent)" opacity="0.4" />
+        <circle cx="37" cy="18" r="1.5" fill="var(--accent)" opacity="0.4" />
+        <circle cx="37" cy="34" r="1.5" fill="var(--accent)" opacity="0.4" />
+        <circle cx="26" cy="40" r="1.5" fill="var(--accent)" opacity="0.4" />
+        <circle cx="15" cy="34" r="1.5" fill="var(--accent)" opacity="0.4" />
+        <circle cx="15" cy="18" r="1.5" fill="var(--accent)" opacity="0.4" />
         <!-- Central knowledge node -->
         <circle cx="26" cy="26" r="3" fill="var(--accent)" class="anim-pulse-dot" />
-        <!-- Vertex nodes -->
-        <circle cx="26" cy="12" r="1.5" fill="var(--accent)" opacity="0.5" />
-        <circle cx="37" cy="18" r="1.5" fill="var(--accent)" opacity="0.5" />
-        <circle cx="37" cy="34" r="1.5" fill="var(--accent)" opacity="0.5" />
-        <circle cx="26" cy="40" r="1.5" fill="var(--accent)" opacity="0.5" />
-        <circle cx="15" cy="34" r="1.5" fill="var(--accent)" opacity="0.5" />
-        <circle cx="15" cy="18" r="1.5" fill="var(--accent)" opacity="0.5" />
       </svg>
     </div>
     <p class="project__badge">Gyanmarg &mdash; ज्ञानमार्ग</p>
@@ -587,15 +597,21 @@
   <div class="cell cell--span2">
     <div class="glyph-wrap glyph-wrap--project" aria-hidden="true">
       <svg viewBox="0 0 52 52" fill="none">
-        <!-- Brain silhouette -->
-        <path d="M26,14 C20,10 10,12 8,22 C6,30 12,38 18,38 C22,38 24,34 26,32 C28,34 30,38 34,38 C40,38 46,30 44,22 C42,12 32,10 26,14 Z" stroke="var(--accent)" stroke-width="0.9" fill="none" class="anim-float" />
-        <!-- Longitudinal fissure -->
-        <line x1="26" y1="14" x2="26" y2="32" stroke="var(--accent)" stroke-width="0.4" opacity="0.25" />
-        <!-- Center awareness point -->
-        <circle cx="26" cy="23" r="3" fill="var(--accent)" class="anim-pulse-dot" />
-        <!-- EEG thought waves -->
-        <path d="M8,40 Q12,36 16,40 T24,40 T32,40 T40,40 T48,40" stroke="var(--accent)" stroke-width="0.5" fill="none" opacity="0.35" class="anim-prism-beam" />
-        <path d="M10,44 Q14,40 18,44 T26,44 T34,44 T42,44" stroke="var(--accent)" stroke-width="0.5" fill="none" opacity="0.2" class="anim-prism-beam" style="animation-delay: 1s" />
+        <!-- Awareness halo -->
+        <circle cx="26" cy="24" r="20" stroke="var(--accent)" stroke-width="0.3" fill="none" opacity="0.07" />
+        <circle cx="26" cy="24" r="16" stroke="var(--accent)" stroke-width="0.25" fill="none" opacity="0.04" stroke-dasharray="2 6" />
+        <!-- Outer eye (two concentric arcs) -->
+        <path d="M 10,24 C 10,14 18,10 26,10 C 34,10 42,14 42,24" stroke="var(--accent)" stroke-width="0.7" fill="none" />
+        <path d="M 10,24 C 10,34 18,38 26,38 C 34,38 42,34 42,24" stroke="var(--accent)" stroke-width="0.7" fill="none" />
+        <!-- Inner eye / iris boundary -->
+        <path d="M 17,24 C 17,19 22,16 26,16 C 30,16 35,19 35,24" stroke="var(--accent)" stroke-width="0.45" fill="none" opacity="0.35" />
+        <path d="M 17,24 C 17,29 22,32 26,32 C 30,32 35,29 35,24" stroke="var(--accent)" stroke-width="0.45" fill="none" opacity="0.35" />
+        <!-- Awareness point / pupil -->
+        <circle cx="26" cy="24" r="2.5" fill="var(--accent)" class="anim-pulse-dot" />
+        <!-- Reflection ripples (calm, meditation) -->
+        <path d="M 18,34 Q 26,37 34,34" stroke="var(--accent)" stroke-width="0.4" fill="none" opacity="0.3" />
+        <path d="M 15,38 Q 26,42 37,38" stroke="var(--accent)" stroke-width="0.4" fill="none" opacity="0.2" />
+        <path d="M 12,42 Q 26,47 40,42" stroke="var(--accent)" stroke-width="0.4" fill="none" opacity="0.1" />
       </svg>
     </div>
     <p class="project__badge">Pratyaksha &mdash; प्रत्यक्ष</p>
@@ -612,6 +628,21 @@
   <div class="cell cell--full">
     <div class="glyph-wrap glyph-wrap--project" aria-hidden="true">
       <svg viewBox="0 0 52 52" fill="none">
+        <!-- Background data-node grid (depth) -->
+        <g opacity="0.04">
+          <circle cx="10" cy="10" r="0.8" fill="var(--accent)" />
+          <circle cx="42" cy="10" r="0.8" fill="var(--accent)" />
+          <circle cx="6" cy="26" r="0.8" fill="var(--accent)" />
+          <circle cx="46" cy="26" r="0.8" fill="var(--accent)" />
+          <circle cx="10" cy="42" r="0.8" fill="var(--accent)" />
+          <circle cx="42" cy="42" r="0.8" fill="var(--accent)" />
+          <line x1="10" y1="10" x2="26" y2="26" stroke="var(--accent)" stroke-width="0.2" />
+          <line x1="42" y1="10" x2="26" y2="26" stroke="var(--accent)" stroke-width="0.2" />
+          <line x1="6" y1="26" x2="26" y2="26" stroke="var(--accent)" stroke-width="0.2" />
+          <line x1="46" y1="26" x2="26" y2="26" stroke="var(--accent)" stroke-width="0.2" />
+          <line x1="10" y1="42" x2="26" y2="26" stroke="var(--accent)" stroke-width="0.2" />
+          <line x1="42" y1="42" x2="26" y2="26" stroke="var(--accent)" stroke-width="0.2" />
+        </g>
         <!-- Prism body (two faces matching brand logo) -->
         <g class="anim-float">
           <polygon points="26,6 10,43 26,39" stroke="var(--accent)" stroke-width="0.8" fill="none" opacity="0.55" />
