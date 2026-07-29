@@ -216,7 +216,7 @@
     }
 
     /* ── Pitch rotator ──────────────────────────────────── */
-    .pitch-rotator { position: relative; height: 1.4em; overflow: hidden; margin-top: 0.5rem; }
+    .pitch-rotator { position: relative; height: 1.6em; overflow: hidden; margin-top: 0.5rem; }
     .pitch-rotator__track { position: relative; height: 100%; }
     .pitch-rotator__line {
       position: absolute; left: 0; right: 0; top: 0;
@@ -836,6 +836,36 @@
     const toggle = (open) => { ham.setAttribute('aria-expanded', open); overlay.classList.toggle('open', open); overlay.setAttribute('aria-hidden', !open); };
     ham.addEventListener('click', () => toggle(ham.getAttribute('aria-expanded') !== 'true'));
     overlayLinks.forEach(link => { link.addEventListener('click', () => toggle(false)); });
+  }
+  /* ── Pitch rotator ─────────────────────────────────────── */
+  const pitchTrack = document.querySelector('.pitch-rotator__track');
+  const pitchDots = document.querySelector('.pitch-rotator__dots');
+  if (pitchTrack && pitchDots) {
+    const lines = pitchTrack.querySelectorAll('.pitch-rotator__line');
+    const total = lines.length;
+    let idx = 0;
+    const frag = document.createDocumentFragment();
+    for (let i = 0; i < total; i++) { const d = document.createElement('span'); d.className = 'pitch-rotator__dot' + (i === 0 ? ' pitch-rotator__dot--active' : '') + (i === 1 ? ' pitch-rotator__dot--next' : ''); frag.appendChild(d); }
+    pitchDots.appendChild(frag);
+    const allDots = pitchDots.querySelectorAll('.pitch-rotator__dot');
+    const allDots = pitchDots.querySelectorAll('.pitch-rotator__dot');
+    setInterval(() => {
+      const next = (idx + 1) % total;
+      lines[idx].className = 'pitch-rotator__line pitch-rotator__line--exit';
+      lines[next].className = 'pitch-rotator__line pitch-rotator__line--active';
+      const resetIdx = (idx - 1 + total) % total;
+      const r = lines[resetIdx];
+      r.style.transition = 'none';
+      r.className = 'pitch-rotator__line';
+      void r.offsetHeight;
+      r.style.transition = '';
+      idx = next;
+      allDots.forEach((d, i) => {
+        d.className = 'pitch-rotator__dot';
+        if (i === idx) d.classList.add('pitch-rotator__dot--active');
+        else if (i === (idx + 1) % total) d.classList.add('pitch-rotator__dot--next');
+      });
+    }, 2200);
   }
 })();
 </script>
