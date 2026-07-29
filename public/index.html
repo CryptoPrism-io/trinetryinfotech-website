@@ -149,9 +149,19 @@
       80%  { opacity: 0.5; }
       100% { opacity: 0; }
     }
+    @keyframes energy-ring {
+      0%   { opacity: 0.35; transform: scale(1); }
+      100% { opacity: 0;    transform: scale(1.35); }
+    }
+    @keyframes breathe-bindu {
+      0%, 100% { transform: scale(1);   opacity: 0.8; }
+      50%      { transform: scale(1.04); opacity: 1; }
+    }
 
     .anim-spin { transform-origin: center; animation: spin-slow 16s linear infinite; }
     .anim-pulse-ring { transform-origin: center; animation: pulse-ring 2.5s ease-out infinite; }
+    .anim-energy-ring { transform-origin: 28px 28px; animation: energy-ring 4s ease-out infinite; }
+    .anim-breathe-bindu { transform-origin: 28px 28px; animation: breathe-bindu 2.8s ease-in-out infinite; }
     .anim-pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
     .anim-draw { stroke-dasharray: 200; animation: draw-line 1.8s ease-out forwards; }
     .anim-slide-bar { transform-origin: left; animation: slide-bar 0.8s ease-out forwards; }
@@ -394,16 +404,44 @@
         <!-- Bhupura — outer square (earth element) -->
         <rect x="2" y="2" width="52" height="52" rx="3" stroke="var(--accent)" stroke-width="0.6" fill="none" opacity="0.2" />
         <rect x="5" y="5" width="46" height="46" rx="2" stroke="var(--accent)" stroke-width="0.4" fill="none" opacity="0.12" />
+        <!-- T-shaped gates (4 directions) -->
+        <path d="M24,3 L32,3 M28,3 L28,6" stroke="var(--accent)" stroke-width="0.5" fill="none" opacity="0.25" />
+        <path d="M24,53 L32,53 M28,53 L28,50" stroke="var(--accent)" stroke-width="0.5" fill="none" opacity="0.25" />
+        <path d="M3,24 L3,32 M3,28 L6,28" stroke="var(--accent)" stroke-width="0.5" fill="none" opacity="0.25" />
+        <path d="M53,24 L53,32 M53,28 L50,28" stroke="var(--accent)" stroke-width="0.5" fill="none" opacity="0.25" />
         <!-- Lotus circle -->
         <circle cx="28" cy="28" r="23" stroke="var(--accent)" stroke-width="0.5" fill="none" opacity="0.15" />
-        <!-- Tripura — three interlocking fortresses -->
-        <polygon points="28,6 50,46 6,46" stroke="var(--accent)" stroke-width="0.8" fill="none" class="anim-spin" opacity="0.3" style="animation-duration: 32s;" />
-        <polygon points="28,12 44,44 12,44" stroke="var(--accent)" stroke-width="0.8" fill="none" class="anim-spin" style="animation-direction: reverse; animation-duration: 24s;" opacity="0.5" />
-        <polygon points="28,18 38,42 18,42" stroke="var(--accent)" stroke-width="1" fill="none" class="anim-spin" style="animation-duration: 18s;" />
-        <!-- Pulsing ring (energetic field) -->
-        <circle cx="28" cy="28" r="6" stroke="var(--accent)" stroke-width="0.6" fill="none" class="anim-pulse-ring" />
+        <!-- 8 lotus petals (subtle) -->
+        <circle cx="51" cy="28" r="0.8" fill="var(--accent)" opacity="0.12" />
+        <circle cx="44.26" cy="44.26" r="0.8" fill="var(--accent)" opacity="0.12" />
+        <circle cx="28" cy="51" r="0.8" fill="var(--accent)" opacity="0.12" />
+        <circle cx="11.74" cy="44.26" r="0.8" fill="var(--accent)" opacity="0.12" />
+        <circle cx="5" cy="28" r="0.8" fill="var(--accent)" opacity="0.12" />
+        <circle cx="11.74" cy="11.74" r="0.8" fill="var(--accent)" opacity="0.12" />
+        <circle cx="28" cy="5" r="0.8" fill="var(--accent)" opacity="0.12" />
+        <circle cx="44.26" cy="11.74" r="0.8" fill="var(--accent)" opacity="0.12" />
+        <!-- Layer A — outer upward triangles (Shiva, 32s CW) -->
+        <g class="anim-spin" style="animation-duration: 32s;" opacity="0.3">
+          <polygon points="28,6 47.05,39 8.95,39" stroke="var(--accent)" stroke-width="0.7" fill="none" />
+          <polygon points="28,11 42.72,36.5 13.28,36.5" stroke="var(--accent)" stroke-width="0.7" fill="none" />
+        </g>
+        <!-- Layer B — outer downward triangles (Shakti, 24s CCW) -->
+        <g class="anim-spin" style="animation-duration: 24s; animation-direction: reverse;" opacity="0.45">
+          <polygon points="28,50 47.05,17 8.95,17" stroke="var(--accent)" stroke-width="0.7" fill="none" />
+          <polygon points="28,45 42.72,19.5 13.28,19.5" stroke="var(--accent)" stroke-width="0.7" fill="none" />
+        </g>
+        <!-- Layer C — innermost cluster (18s CW) -->
+        <g class="anim-spin" style="animation-duration: 18s;" opacity="0.65">
+          <polygon points="28,16 38.39,34 17.61,34" stroke="var(--accent)" stroke-width="0.7" fill="none" />
+          <polygon points="28,40 38.39,22 17.61,22" stroke="var(--accent)" stroke-width="0.7" fill="none" />
+          <polygon points="28,20.5 34.5,31.75 21.5,31.75" stroke="var(--accent)" stroke-width="0.7" fill="none" />
+          <polygon points="28,35.5 34.5,24.25 21.5,24.25" stroke="var(--accent)" stroke-width="0.7" fill="none" />
+          <polygon points="28,32 31.46,26 24.54,26" stroke="var(--accent)" stroke-width="0.8" fill="none" />
+        </g>
+        <!-- Energy ring (pulsing field) -->
+        <circle cx="28" cy="28" r="24" stroke="var(--accent)" stroke-width="0.4" fill="none" class="anim-energy-ring" />
         <!-- Central bindu -->
-        <circle cx="28" cy="28" r="2.5" fill="var(--accent)" class="anim-pulse-dot" />
+        <circle cx="28" cy="28" r="2.5" fill="var(--accent)" class="anim-breathe-bindu" />
       </svg>
     </div>
     <p class="cell__overline">trinetryinfotech.com</p>
