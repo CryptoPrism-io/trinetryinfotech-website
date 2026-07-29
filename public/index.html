@@ -278,8 +278,12 @@
     .contact__email:hover { color: var(--accent); border-color: var(--accent); }
 
     /* ── Built-with ─────────────────────────────────────── */
-    .built-with { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: clamp(1rem, 2.5vw, 2rem); padding: 1.5rem 2.5rem; text-align: center; }
-    .built-with__item { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); opacity: 0.45; }
+    .built-with { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: clamp(0.75rem, 2vw, 1.5rem); padding: 1.5rem 2.5rem; text-align: center; }
+    .built-with__logo { height: 22px; width: auto; opacity: 0.45; transition: opacity 0.2s; }
+    .built-with__logo:hover { opacity: 0.75; }
+
+    /* ── Tech stack icons ────────────────────────────────── */
+    .tech-icon { display: inline-block; vertical-align: middle; width: 14px; height: 14px; margin-right: 3px; margin-bottom: 2px; opacity: 0.65; }
 
     /* ── Footer ─────────────────────────────────────────── */
     .footer-inner { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 1.5rem 2.5rem; }
@@ -497,7 +501,7 @@
     <ul class="project__pills" aria-label="Features">
       <li>Spaced Repetition</li><li>XP &amp; Levels</li><li>PWA</li><li>45+ Ebooks</li>
     </ul>
-    <p class="project__stack">React 19 &middot; TypeScript &middot; Vite &middot; Firebase Hosting &middot; CloudFront</p>
+    <p class="project__stack"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/react/light.svg" alt="" />React 19 &middot; <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/typescript/mono.svg" alt="" />TypeScript &middot; <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/vite/mono.svg" alt="" />Vite &middot; <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/firebase/mono.svg" alt="" />Firebase Hosting &middot; CloudFront</p>
     <a class="project__link" href="https://ai-polymind.web.app" target="_blank" rel="noopener noreferrer">View Project &rarr;</a>
   </div>
 
@@ -517,7 +521,7 @@
     <ul class="project__pills" aria-label="Features">
       <li>AI Insights</li><li>Emotion Mapping</li><li>Theme Detection</li><li>Airtable Sync</li>
     </ul>
-    <p class="project__stack">React &middot; Express &middot; GPT-4o &middot; AWS Lightsail</p>
+    <p class="project__stack"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/react/light.svg" alt="" />React &middot; <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/openai/light.svg" alt="" />GPT-4o &middot; <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/aws/mono.svg" alt="" />AWS Lightsail</p>
   </div>
 
   <!-- ════ CRYPTOPRISM ════ -->
@@ -541,7 +545,7 @@
     <ul class="project__pills" aria-label="Features">
       <li>17 Chains</li><li>1,000+ Coins</li><li>130+ TA Indicators</li><li>CryptoScore</li><li>Saarthi AI</li><li>Sentiment Engine</li>
     </ul>
-    <p class="project__stack">FastAPI &middot; BigQuery &middot; PostgreSQL &middot; Redis &middot; Next.js &middot; Claude &middot; Binance API</p>
+    <p class="project__stack"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/fastapi/mono.svg" alt="" />FastAPI &middot; <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/google-bigquery/default.svg" alt="" />BigQuery &middot; <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/postgresql/mono.svg" alt="" />PostgreSQL &middot; <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/redis/mono.svg" alt="" />Redis &middot; <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/nextjs/default.svg" alt="" />Next.js &middot; <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/claude/mono.svg" alt="" />Claude &middot; <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/binance/mono.svg" alt="" />Binance</p>
     <a class="project__link" href="https://cryptoprism.io" target="_blank" rel="noopener noreferrer">View Project &rarr;</a>
   </div>
 
@@ -560,20 +564,20 @@
   <!-- ════ BUILT WITH ════ -->
   <div class="cell cell--full">
     <div class="built-with">
-      <span class="built-with__item">Google Cloud</span>
-      <span class="built-with__item">AWS</span>
-      <span class="built-with__item">BigQuery</span>
-      <span class="built-with__item">PostgreSQL</span>
-      <span class="built-with__item">Redis</span>
-      <span class="built-with__item">FastAPI</span>
-      <span class="built-with__item">Next.js</span>
-      <span class="built-with__item">React</span>
-      <span class="built-with__item">Python</span>
-      <span class="built-with__item">Firebase</span>
-      <span class="built-with__item">Claude</span>
-      <span class="built-with__item">OpenAI</span>
-      <span class="built-with__item">LangGraph</span>
-      <span class="built-with__item">Binance API</span>
+      <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/google-cloud/mono.svg" alt="Google Cloud" />
+      <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/aws/mono.svg" alt="AWS" />
+      <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/google-bigquery/default.svg" alt="BigQuery" />
+      <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/postgresql/mono.svg" alt="PostgreSQL" />
+      <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/redis/mono.svg" alt="Redis" />
+      <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/fastapi/mono.svg" alt="FastAPI" />
+      <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/nextjs/default.svg" alt="Next.js" />
+      <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/react/light.svg" alt="React" />
+      <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/python/mono.svg" alt="Python" />
+      <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/firebase/mono.svg" alt="Firebase" />
+      <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/claude/mono.svg" alt="Claude" />
+      <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/openai/light.svg" alt="OpenAI" />
+      <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/langgraph/mono.svg" alt="LangGraph" />
+      <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/binance/mono.svg" alt="Binance" />
     </div>
   </div>
 
