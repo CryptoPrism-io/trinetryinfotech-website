@@ -186,6 +186,35 @@
       text-transform: uppercase; color: var(--muted);
       padding: 0.25rem 0.7rem; border: 1px solid var(--border); border-radius: 999px;
     }
+    .cell__hero-sub {
+      margin-top: 0.75rem; font-size: 0.85rem; color: var(--muted);
+      max-width: 520px; line-height: 1.5;
+    }
+    .cell__hero-socials {
+      display: flex; align-items: center; gap: 1rem; margin-top: 1.25rem;
+    }
+    .cell__hero-socials a {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      font-size: 0.72rem; font-weight: 500; color: var(--muted);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .cell__hero-socials a:hover { color: var(--accent); }
+    .cell__hero-socials svg { width: 16px; height: 16px; flex-shrink: 0; }
+    .contact__response { margin-top: 0.5rem; font-size: 0.72rem; color: var(--muted); }
+    .social-proof { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem 2.5rem; padding: 2rem 2.5rem; }
+    .social-proof__item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; color: var(--muted); }
+    .social-proof__item svg { width: 18px; height: 18px; opacity: 0.5; flex-shrink: 0; }
+    @media (max-width: 640px) {
+      .cell__hero-sub { font-size: 0.75rem; }
+      .social-proof { gap: 1rem; padding: 1.25rem; }
+      .social-proof__item { font-size: 0.68rem; }
+    }
+    @media (max-width: 480px) {
+      .cell__hero-sub { font-size: 0.7rem; }
+      .cell__hero-socials { gap: 0.75rem; }
+      .cell__hero-socials a { font-size: 0.65rem; }
+      .cell__hero-socials svg { width: 14px; height: 14px; }
+    }
 
     /* ── Stat cells ─────────────────────────────────────── */
     .stat__num {
@@ -524,6 +553,17 @@
     <div class="cell__tags">
       <span>AI</span><span>ML</span><span>Quantitative Systems</span><span>Data Infrastructure</span><span>Product Engineering</span>
     </div>
+    <p class="cell__hero-sub">Institutional-scale crypto data infrastructure on a startup budget — 12 products shipped, 17 chains integrated, 3-person core.</p>
+    <div class="cell__hero-socials">
+      <a href="https://github.com/CryptoPrism-io" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        <span>GitHub</span>
+      </a>
+      <a href="https://x.com/CryptoPrism_io" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter">
+        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/></svg>
+        <span>X / Twitter</span>
+      </a>
+    </div>
   </div>
 
   <!-- ════ STATS COMBO (desktop: 2 grid cols, mobile: flex row + divider) ════ -->
@@ -770,9 +810,10 @@
   </div>
 
   <div class="cell cell--span2" id="contact">
-    <h2 class="contact__label">Contact</h2>
-    <p class="contact__text">Interested in working together? Start a conversation.</p>
+    <h2 class="contact__label">Let's Build</h2>
+    <p class="contact__text">Building a crypto data product? Need a fractional engineering lead or technical advisor?</p>
     <a class="contact__email" href="mailto:yogesh.sahu@trinetryinfotech.com">yogesh.sahu@trinetryinfotech.com</a>
+    <p class="contact__response">Typically responds within 24 hours.</p>
   </div>
 
   <!-- ════ BUILT WITH ════ -->
@@ -826,11 +867,33 @@
     </div>
   </div>
 
+  <!-- ════ SOCIAL PROOF ════ -->
+  <div class="cell cell--full">
+    <div class="social-proof">
+      <span class="social-proof__item">
+        <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 1L17 5V13L9 17L1 13V5L9 1Z" /><path d="M9 5L13 7V11L9 13L5 11V7L9 5Z" /></svg>
+        DPIIT-Recognised Startup
+      </span>
+      <span class="social-proof__item">
+        <svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 0C4.03 0 0 4.03 0 9c0 3.98 2.58 7.35 6.16 8.54.45.08.62-.2.62-.44 0-.22-.01-.95-.01-1.73-2.26.41-2.84-.55-3.02-1.06-.1-.26-.54-1.06-.92-1.28-.31-.17-.76-.58-.01-.59.71-.01 1.21.65 1.38.92.81 1.36 2.1.98 2.62.74.08-.58.28-.98.51-1.21-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .26.16.53.63.44A9.02 9.02 0 0018 9c0-4.97-4.03-9-9-9z"/></svg>
+        Open Source on GitHub
+      </span>
+      <span class="social-proof__item">
+        <svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 1C4.58 1 1 4.58 1 9s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zM7.5 13.5v-9l6 4.5-6 4.5z"/></svg>
+        12 Live Products
+      </span>
+      <span class="social-proof__item">
+        <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 1v16M1 9h16"/><circle cx="9" cy="9" r="3"/></svg>
+        17 Blockchains
+      </span>
+    </div>
+  </div>
+
   <!-- ════ FOOTER ════ -->
   <div class="cell cell--full">
     <footer class="footer-inner">
       <p class="footer__tagline"><span class="accent">Intelligence,</span> Engineered.</p>
-      <p class="footer__copy">&copy; 2026 trinetryinfotech.com</p>
+      <p class="footer__copy">&copy; 2026 Yogesh Sahu &mdash; trinetryinfotech.com</p>
     </footer>
   </div>
 
