@@ -292,9 +292,11 @@
     .contact__email:hover { color: var(--accent); border-color: var(--accent); }
 
     /* ── Built-with ─────────────────────────────────────── */
-    .built-with { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: clamp(0.75rem, 2vw, 1.5rem); padding: 1.5rem 2.5rem; text-align: center; }
-    .built-with__logo { height: 22px; width: auto; opacity: 0.5; filter: brightness(0) saturate(0) invert(0.55); transition: all 0.25s cubic-bezier(0.34,1.56,0.64,1); }
-    .built-with__logo:hover { opacity: 1; filter: none; transform: scale(1.25); }
+    .built-with { overflow: hidden; padding: 1.5rem 0; user-select: none; }
+    .built-with__track { display: flex; align-items: center; gap: clamp(0.75rem, 2vw, 1.5rem); width: max-content; padding: 0 2.5rem; animation: marquee 40s linear infinite; }
+    .built-with:hover .built-with__track { animation-play-state: paused; }
+    .built-with__logo { height: 22px; width: auto; opacity: 0.5; transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.34,1.56,0.64,1); flex-shrink: 0; }
+    .built-with__logo:hover { opacity: 1; transform: scale(1.25); }
 
     /* ── Tech stack icons ────────────────────────────────── */
     .tech-icon { display: inline-block; vertical-align: middle; width: 14px; height: 14px; margin-right: 3px; margin-bottom: 2px; opacity: 0.75; transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.34,1.56,0.64,1); position: relative; cursor: help; }
@@ -322,7 +324,7 @@
       .cell--span2 { grid-column: 1; }
       .cell { padding: 1.75rem; }
       .giant-stat { padding: 2.5rem 1.75rem; }
-      .built-with { padding: 1.25rem 1.75rem; }
+      .built-with { padding: 1.25rem 0; }
       .footer-inner { flex-direction: column; align-items: flex-start; gap: 0.5rem; padding: 1.25rem 1.75rem; }
     }
     @media (max-width: 480px) {
@@ -337,6 +339,7 @@
       .cell__hero-title { font-size: 1.9rem; }
       .nav-pill { padding: 0.25rem 0.25rem 0.25rem 0.75rem; }
     }
+    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
   </style>
   <noscript><style>.tick-reveal, .fade-in { opacity: 1; transform: none; }</style></noscript>
   <script type="application/ld+json">
@@ -689,20 +692,37 @@
   <!-- ════ BUILT WITH ════ -->
   <div class="cell cell--full">
     <div class="built-with">
-      <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/google-cloud/default.svg" alt="Google Cloud" />
-      <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/aws/default.svg" alt="AWS" />
-      <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/google-bigquery/default.svg" alt="BigQuery" />
-      <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/postgresql/default.svg" alt="PostgreSQL" />
-      <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/redis/default.svg" alt="Redis" />
-      <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/fastapi/default.svg" alt="FastAPI" />
-      <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/nextjs/default.svg" alt="Next.js" />
-      <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/react/light.svg" alt="React" />
-      <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/python/default.svg" alt="Python" />
-      <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/firebase/default.svg" alt="Firebase" />
-      <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/claude/default.svg" alt="Claude" />
-      <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/openai/light.svg" alt="OpenAI" />
-      <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/langgraph/default.svg" alt="LangGraph" />
-      <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/binance/default.svg" alt="Binance" />
+      <div class="built-with__track">
+        <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/google-cloud/default.svg" alt="Google Cloud" />
+        <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/aws/default.svg" alt="AWS" />
+        <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/google-bigquery/default.svg" alt="BigQuery" />
+        <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/postgresql/default.svg" alt="PostgreSQL" />
+        <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/redis/default.svg" alt="Redis" />
+        <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/fastapi/default.svg" alt="FastAPI" />
+        <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/nextjs/default.svg" alt="Next.js" />
+        <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/react/light.svg" alt="React" />
+        <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/python/default.svg" alt="Python" />
+        <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/firebase/default.svg" alt="Firebase" />
+        <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/claude/default.svg" alt="Claude" />
+        <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/openai/light.svg" alt="OpenAI" />
+        <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/langgraph/default.svg" alt="LangGraph" />
+        <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/binance/default.svg" alt="Binance" />
+        <!-- duplicated for seamless loop -->
+        <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/google-cloud/default.svg" alt="Google Cloud" />
+        <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/aws/default.svg" alt="AWS" />
+        <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/google-bigquery/default.svg" alt="BigQuery" />
+        <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/postgresql/default.svg" alt="PostgreSQL" />
+        <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/redis/default.svg" alt="Redis" />
+        <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/fastapi/default.svg" alt="FastAPI" />
+        <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/nextjs/default.svg" alt="Next.js" />
+        <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/react/light.svg" alt="React" />
+        <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/python/default.svg" alt="Python" />
+        <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/firebase/default.svg" alt="Firebase" />
+        <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/claude/default.svg" alt="Claude" />
+        <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/openai/light.svg" alt="OpenAI" />
+        <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/langgraph/default.svg" alt="LangGraph" />
+        <img class="built-with__logo" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/binance/default.svg" alt="Binance" />
+      </div>
     </div>
   </div>
 
