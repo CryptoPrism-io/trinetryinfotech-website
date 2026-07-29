@@ -862,7 +862,6 @@
     for (let i = 0; i < total; i++) { const d = document.createElement('span'); d.className = 'pitch-rotator__dot' + (i === 0 ? ' pitch-rotator__dot--active' : '') + (i === 1 ? ' pitch-rotator__dot--next' : ''); frag.appendChild(d); }
     pitchDots.appendChild(frag);
     const allDots = pitchDots.querySelectorAll('.pitch-rotator__dot');
-    const allDots = pitchDots.querySelectorAll('.pitch-rotator__dot');
     setInterval(() => {
       const next = (idx + 1) % total;
       lines[idx].className = 'pitch-rotator__line pitch-rotator__line--exit';
