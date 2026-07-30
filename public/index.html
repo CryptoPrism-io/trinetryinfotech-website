@@ -361,6 +361,11 @@
       transition: opacity 0.2s;
     }
     .project__link:hover { opacity: 0.6; }
+    .project__insight {
+      font-size: 0.72rem; color: var(--accent); opacity: 0.85;
+      margin-bottom: 0.75rem; line-height: 1.5;
+    }
+    .project__insight::before { content: "\2192\00a0"; }
 
     /* ── About cell ─────────────────────────────────────── */
     .about__title {
@@ -752,6 +757,7 @@
     <p class="project__badge">Gyanmarg &mdash; ज्ञानमार्ग</p>
     <h3 class="project__name">Gyanmarg</h3>
     <p class="project__tagline">Transform ancient wisdom into modern mastery.</p>
+    <p class="project__insight">Converting dense Vedic and Indian knowledge into a game loop that doesn't feel like school — 80+ interactive visualisations built from scratch, each explaining a philosophical concept without a single wall of text.</p>
     <p class="project__desc">Gamified learning platform with spaced repetition, active recall, and <strong>60+ lesson subjects</strong> spanning Vedic wisdom to modern science &mdash; each with 10 levels of mastery. Features <strong>80+ interactive visualizations</strong>, flashcard decks, mini-games, and AI-generated reels for on-the-go revision. Built as a PWA with levelling, XP tracking, and progress analytics.</p>
     <ul class="project__pills" aria-label="Features">
       <li>60+ Subjects</li><li>80+ Visualizations</li><li>Spaced Repetition</li><li>XP &amp; Levels</li>
@@ -784,6 +790,7 @@
     <p class="project__badge">Pratyaksha &mdash; प्रत्यक्ष</p>
     <h3 class="project__name">Pratyaksha</h3>
     <p class="project__tagline">See your mind. Clearly.</p>
+    <p class="project__insight">Getting a 4-agent LLM pipeline to consistently output structured emotion maps without hallucination — each agent cross-validates the others, and the final layer rejects anything that doesn't match the user's actual journal text.</p>
     <p class="project__desc">Cognitive journaling dashboard powered by a 4-agent AI pipeline. Maps emotions, detects recurring themes, and surfaces actionable insights from daily journal entries. Currently being migrated from Cloud Run to Lightsail.</p>
     <ul class="project__pills" aria-label="Features">
       <li>AI Insights</li><li>Emotion Mapping</li><li>Theme Detection</li><li>Airtable Sync</li>
@@ -833,6 +840,7 @@
     <p class="project__badge">CryptoPrism &mdash; On-Chain Quantitative Intelligence</p>
     <h3 class="project__name">CryptoPrism</h3>
     <p class="project__tagline">See the market through every angle.</p>
+    <p class="project__insight">The trick: an intelligent caching layer that respects rate limits across 17 RPC endpoints while keeping all 1,000+ coins fresh within each 5-minute window — without it, the infrastructure cost would be 50x higher.</p>
     <p class="project__desc">A crypto-native analytics platform that ingests <strong>17 blockchains</strong> via BigQuery public datasets, processes <strong>1,000+ coins</strong> daily with <strong>130+ technical indicators</strong>, and generates ML-powered signals through an ensemble of scoring models. The proprietary <strong>CryptoScore</strong> formula weights OnChain (40%), Value (30%), and Momentum (30%) factors. Includes <strong>Saarthi</strong>, an AI companion for natural-language market queries, and a real-time sentiment engine fed by hourly news pipelines. The entire system runs on <strong>GCP + AWS</strong> infrastructure at under $100/mo — where comparable institutional data providers charge $15,000–30,000/mo.</p>
     <ul class="project__pills" aria-label="Features">
       <li>17 Chains</li><li>1,000+ Coins</li><li>130+ TA Indicators</li><li>CryptoScore</li><li>Saarthi AI</li><li>Sentiment Engine</li>
