@@ -367,6 +367,24 @@
     }
     .project__insight::before { content: "\2192\00a0"; }
 
+    /* ── Micro-CTA ──────────────────────────────────────── */
+    .micro-cta {
+      display: inline-block; font-size: 0.68rem; font-weight: 500;
+      color: var(--muted); text-decoration: none; margin-top: 0.5rem;
+      border-bottom: 1px solid transparent; transition: color 0.2s, border-color 0.2s;
+    }
+    .micro-cta:hover { color: var(--accent); border-bottom-color: var(--accent); }
+    .micro-cta::after { content: " \2192"; }
+    .section-cta { display: flex; justify-content: center; padding: 1.5rem 2rem; }
+    .section-cta a {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.75rem; font-weight: 500; color: var(--muted);
+      text-decoration: none; padding: 0.5rem 1.25rem;
+      border: 1px solid var(--border); border-radius: 9999px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .section-cta a:hover { color: var(--accent); border-color: var(--accent); }
+
     /* ── About cell ─────────────────────────────────────── */
     .about__title {
       font-size: 0.68rem; font-weight: 500; letter-spacing: 0.22em;
@@ -702,6 +720,13 @@
     <p class="service__desc">Full-stack product delivery across React 19, Next.js, FastAPI, Firebase, and AWS. PWA, gamification, real-time dashboards — proven across 12 shipped products, each with live users and CI/CD.</p>
   </div>
 
+  <!-- ════ SERVICES → PROJECTS CTA ════ -->
+  <div class="cell cell--full">
+    <div class="section-cta">
+      <a href="#projects">See what we've built &darr;</a>
+    </div>
+  </div>
+
   <!-- ════ PROJECTS ════ -->
   <div class="cell cell--full" id="projects">
     <div class="section-head">
@@ -760,6 +785,7 @@
     </ul>
     <p class="project__stack"><img class="tech-icon" title="React" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/react/default.svg" alt="" />React 19 &middot; <img class="tech-icon" title="TypeScript" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/typescript/default.svg" alt="" />TypeScript &middot; <img class="tech-icon" title="Vite" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/vite/default.svg" alt="" />Vite &middot; <img class="tech-icon" title="Firebase" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/firebase/default.svg" alt="" />Firebase Hosting &middot; CloudFront</p>
     <a class="project__link" href="https://ai-polymind.web.app" target="_blank" rel="noopener noreferrer">View Project &rarr;</a>
+    <a class="micro-cta" href="#contact">Discuss this</a>
   </div>
 
   <!-- ════ PRATYAKSHA ════ -->
@@ -793,6 +819,7 @@
     </ul>
     <p class="project__stack"><img class="tech-icon" title="React" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/react/default.svg" alt="" />React &middot; <img class="tech-icon" title="OpenAI" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/openai/default.svg" alt="" />GPT-4o &middot; <img class="tech-icon" title="AWS" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/aws/default.svg" alt="" />AWS Lightsail</p>
     <a class="project__link" href="https://ai-becoming.web.app" target="_blank" rel="noopener noreferrer">View Project &rarr;</a>
+    <a class="micro-cta" href="#contact">Discuss this</a>
   </div>
 
   <!-- ════ CRYPTOPRISM ════ -->
@@ -843,6 +870,7 @@
     </ul>
     <p class="project__stack"><img class="tech-icon" title="FastAPI" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/fastapi/default.svg" alt="" />FastAPI &middot; <img class="tech-icon" title="BigQuery" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/google-bigquery/default.svg" alt="" />BigQuery &middot; <img class="tech-icon" title="PostgreSQL" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/postgresql/default.svg" alt="" />PostgreSQL &middot; <img class="tech-icon" title="Redis" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/redis/default.svg" alt="" />Redis &middot; <img class="tech-icon" title="Next.js" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/nextjs/default.svg" alt="" />Next.js &middot; <img class="tech-icon" title="Claude" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/claude/default.svg" alt="" />Claude &middot; <img class="tech-icon" title="Binance" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/binance/default.svg" alt="" />Binance</p>
     <a class="project__link" href="https://cryptoprism.io" target="_blank" rel="noopener noreferrer">View Project &rarr;</a>
+    <a class="micro-cta" href="#contact">Discuss this</a>
   </div>
 
   <!-- ════ ABOUT + CONTACT ════ -->
