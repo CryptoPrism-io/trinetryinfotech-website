@@ -70,6 +70,11 @@
     .project-card__link:hover { border-bottom-color: var(--accent); }
     .project-card__right { display: flex; flex-direction: column; }
     .project-card__right .project-card__link { align-self: flex-start; margin-top: auto; }
+    .project-card__insight { font-size: 0.7rem; color: var(--accent); opacity: 0.85; margin-top: 0.5rem; line-height: 1.4; }
+    .project-card__insight::before { content: "\2192\00a0"; }
+
+    /* ── Category headers ──────────────────────────────── */
+    .project-category { padding: 1.25rem 2rem 0.5rem; background: var(--paper); font-family: var(--font-mono); font-size: 0.65rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
 
     /* ── Featured badge ──────────────────────────────────── */
     .project-card--featured { position: relative; }
@@ -142,12 +147,16 @@
 
 <div class="project-list">
 
+  <!-- ── FINTECH & DATA INFRASTRUCTURE ── -->
+  <div class="project-category">Fintech &amp; Data Infrastructure</div>
+
   <!-- ── CRYPTOPRISM ON-CHAIN ── -->
   <a class="project-card project-card--featured" href="https://app.cryptoprism.io" target="_blank" rel="noopener noreferrer">
     <div>
       <p class="project-card__badge">Fintech &middot; Infrastructure</p>
       <p class="project-card__name">CryptoPrism On-chain Analytics</p>
       <p class="project-card__desc">BigQuery-based on-chain data pipeline processing 1B+ datapoints daily across 100+ coins. Real-time market data ingestion, analytics, and ML-powered scoring.</p>
+      <p class="project-card__insight">Caching layer respects rate limits across 17 RPC endpoints while keeping all coins fresh — without it, infra costs would be 50x higher.</p>
       <ul class="project-card__pills"><li>17 Blockchains</li><li>1B+ Datapoints/Day</li><li>100+ Coins</li><li>CryptoScore</li></ul>
     </div>
     <div class="project-card__right">
@@ -166,6 +175,7 @@
       <p class="project-card__badge">Fintech &middot; Backend</p>
       <p class="project-card__name">CryptoPrism API</p>
       <p class="project-card__desc">FastAPI microservices backend deployed on Cloud Run. Serves analytics data, portfolio management, and trading endpoints with &lt;50ms p99 latency.</p>
+      <p class="project-card__insight">Sub-50ms p99 latency while serving analytics, portfolio, and trading endpoints — achieved through aggressive Redis caching of the most-accessed coin pairs.</p>
       <ul class="project-card__pills"><li>&lt;50ms p99</li><li>RESTful</li><li>PostgreSQL</li><li>Redis Cache</li></ul>
     </div>
     <div class="project-card__right">
@@ -179,12 +189,36 @@
     </div>
   </a>
 
+  <!-- ── FXSAARTHI ── -->
+  <a class="project-card" href="https://forex-session-dashboard.vercel.app" target="_blank" rel="noopener noreferrer">
+    <div>
+      <p class="project-card__badge">Fintech &middot; Forex</p>
+      <p class="project-card__name">FxSaarthi</p>
+      <p class="project-card__desc">Professional forex session dashboard tracking the four major sessions (Sydney, Tokyo, London, NY) with real-time pair coverage, session overlap analytics, and economic calendar integration.</p>
+      <p class="project-card__insight">28 pairs, 4 sessions, real-time overlap analytics — built with OANDA API for live tick data and React for sub-second session state updates.</p>
+      <ul class="project-card__pills"><li>28 Forex Pairs</li><li>4 Sessions</li><li>Overlap Analytics</li><li>Economic Calendar</li></ul>
+    </div>
+    <div class="project-card__right">
+      <p class="project-card__stack">
+        <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/python/default.svg" alt="" />Python
+        OANDA API &middot;
+        <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/typescript/default.svg" alt="" />TypeScript
+        <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/react/default.svg" alt="" />React
+      </p>
+      <span class="project-card__link">View Project &rarr;</span>
+    </div>
+  </a>
+
+  <!-- ── QUANTITATIVE TRADING ── -->
+  <div class="project-category">Quantitative Trading</div>
+
   <!-- ── TIMESFM TRADING BOT ── -->
   <a class="project-card" href="https://github.com/CryptoPrism-io/times-fm-100-coin-bot" target="_blank" rel="noopener noreferrer">
     <div>
       <p class="project-card__badge">Quant &middot; ML Trading</p>
       <p class="project-card__name">TimesFM 100-Coin Trading Bot</p>
       <p class="project-card__desc">ML-powered trading bot using Google TimesFM for signal generation across 100 coins. Automated execution via Binance API with multi-timeframe analysis.</p>
+      <p class="project-card__insight">100 coins × multi-timeframe signals — the bot generates deviation scores across 5m/15m/1h timeframes simultaneously, then filters by regime detection before executing.</p>
       <ul class="project-card__pills"><li>100 Coins</li><li>TimesFM 2.5</li><li>Multi-TF</li><li>Binance API</li></ul>
     </div>
     <div class="project-card__right">
@@ -204,6 +238,7 @@
       <p class="project-card__badge">Quant &middot; Sentiment</p>
       <p class="project-card__name">CryptoPrism News Fetcher</p>
       <p class="project-card__desc">News sentiment analysis pipeline feeding automated spot trading decisions. Ingests hourly headlines, scores sentiment, and triggers signals via Binance API.</p>
+      <p class="project-card__insight">Hourly sentiment scoring on live headlines, filtered through coin-specific relevance scoring before triggering spot signals — avoiding false positives from generic crypto news.</p>
       <ul class="project-card__pills"><li>Hourly Pipeline</li><li>Sentiment Scoring</li><li>Spot Trading</li><li>Live Signals</li></ul>
     </div>
     <div class="project-card__right">
@@ -215,24 +250,10 @@
     </div>
   </a>
 
-  <!-- ── FXSAARTHI ── -->
-  <a class="project-card" href="https://forex-session-dashboard.vercel.app" target="_blank" rel="noopener noreferrer">
-    <div>
-      <p class="project-card__badge">Fintech &middot; Forex</p>
-      <p class="project-card__name">FxSaarthi</p>
-      <p class="project-card__desc">Professional forex session dashboard tracking the four major sessions (Sydney, Tokyo, London, NY) with real-time pair coverage, session overlap analytics, and economic calendar integration.</p>
-      <ul class="project-card__pills"><li>28 Forex Pairs</li><li>4 Sessions</li><li>Overlap Analytics</li><li>Economic Calendar</li></ul>
-    </div>
-    <div class="project-card__right">
-      <p class="project-card__stack">
-        <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/python/default.svg" alt="" />Python
-        OANDA API &middot;
-        <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/typescript/default.svg" alt="" />TypeScript
-        <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/react/default.svg" alt="" />React
-      </p>
-      <span class="project-card__link">View Project &rarr;</span>
-    </div>
-  </a>
+  <!-- ── FXSAARTHI (removed duplicate) ── -->
+
+  <!-- ── CONSUMER AI ── -->
+  <div class="project-category">Consumer AI</div>
 
   <!-- ── GYANMARG ── -->
   <a class="project-card project-card--featured" href="https://ai-polymind.web.app" target="_blank" rel="noopener noreferrer">
@@ -240,6 +261,7 @@
       <p class="project-card__badge">EdTech &middot; Consumer</p>
       <p class="project-card__name">GyanMarg</p>
       <p class="project-card__desc">Gamified learning platform with spaced repetition, active recall, 60+ lesson subjects, and 80+ interactive visualizations. PWA with levelling, XP, and progress analytics.</p>
+      <p class="project-card__insight">Converting dense philosophical concepts into engaging game loops — each subject has 10 levels of mastery, and the hardest part was building visualizations that explain without lecturing.</p>
       <ul class="project-card__pills"><li>60+ Subjects</li><li>80+ Visualizations</li><li>Spaced Repetition</li><li>PWA</li></ul>
     </div>
     <div class="project-card__right">
@@ -259,6 +281,7 @@
       <p class="project-card__badge">AI &middot; Consumer</p>
       <p class="project-card__name">Pratyaksha</p>
       <p class="project-card__desc">AI-powered cognitive journaling platform with a 4-agent pipeline. Maps emotions, detects recurring themes, and transforms raw thoughts into actionable self-insight.</p>
+      <p class="project-card__insight">4-agent LLM pipeline with cross-validation — each agent's output is verified against the others, and the final layer rejects anything that doesn't match the user's actual journal text.</p>
       <ul class="project-card__pills"><li>4 AI Agents</li><li>Emotion Mapping</li><li>Theme Detection</li><li>Lightsail</li></ul>
     </div>
     <div class="project-card__right">
@@ -277,6 +300,7 @@
       <p class="project-card__badge">AI &middot; Cultural</p>
       <p class="project-card__name">AI Bharatverse</p>
       <p class="project-card__desc">Interactive AI-powered platform for exploring the history of India. Built for Times of India as a 6-month fractional engagement featuring LLM-driven conversational experiences.</p>
+      <p class="project-card__insight">6-month fractional engagement for Times of India — delivered an LLM-driven conversational experience exploring Indian history with a knowledge-grounded chat interface.</p>
       <ul class="project-card__pills"><li>Times of India</li><li>6-Month Engagement</li><li>LLM Conversational</li><li>Cultural AI</li></ul>
     </div>
     <div class="project-card__right">
@@ -295,6 +319,7 @@
       <p class="project-card__badge">Gaming &middot; Mobile</p>
       <p class="project-card__name">Kari and the Lost Shrines</p>
       <p class="project-card__desc">Mobile game built for Isha Foundation — explore Indian temples, solve puzzles, and collect lost relics. 50,000+ downloads with a 4.5+ star rating on both app stores.</p>
+      <p class="project-card__insight">50,000+ downloads, 4.5+ stars on both stores — built with Unity 3D for Isha Foundation, balancing cultural authenticity with engaging puzzle mechanics.</p>
       <ul class="project-card__pills"><li>50K+ Downloads</li><li>4.5+ Rating</li><li>Isha Foundation</li><li>Unity 3D</li></ul>
     </div>
     <div class="project-card__right">
@@ -306,12 +331,16 @@
     </div>
   </a>
 
+  <!-- ── ENTERPRISE & CLIENT ── -->
+  <div class="project-category">Enterprise &amp; Client</div>
+
   <!-- ── TRINETRY ERP/CRM ── -->
   <a class="project-card" href="https://yogeshsahu.xyz/projects/trinetry-erp" target="_blank" rel="noopener noreferrer">
     <div>
       <p class="project-card__badge">Enterprise &middot; Operations</p>
       <p class="project-card__name">Trinetry ERP/CRM</p>
       <p class="project-card__desc">Custom ERP/CRM system for SME manufacturing and distribution. Automated invoicing, inventory management, and client outreach with agentic AI workflows.</p>
+      <p class="project-card__insight">Agentic AI workflows handle the boring parts — invoice generation, inventory reconciliation, and client outreach run automatically, freeing operators for exception handling.</p>
       <ul class="project-card__pills"><li>Agentic AI</li><li>Inventory</li><li>Invoicing</li><li>Client Outreach</li></ul>
     </div>
     <div class="project-card__right">
@@ -330,6 +359,7 @@
       <p class="project-card__badge">Enterprise &middot; Manufacturing</p>
       <p class="project-card__name">PGG ERP</p>
       <p class="project-card__desc">Enterprise resource planning system for a manufacturing operation. Inventory management, production scheduling, vendor reconciliation, and financial close — 7 end-to-end operations.</p>
+      <p class="project-card__insight">7 end-to-end manufacturing operations in one system — from production scheduling to vendor reconciliation to financial close, eliminating the spreadsheet chaos that previously ran the floor.</p>
       <ul class="project-card__pills"><li>Manufacturing</li><li>Production Scheduling</li><li>Vendor Reconciliation</li><li>Finance Close</li></ul>
     </div>
     <div class="project-card__right">
@@ -348,6 +378,7 @@
       <p class="project-card__badge">Enterprise &middot; Sales</p>
       <p class="project-card__name">PGG CRM</p>
       <p class="project-card__desc">Customer relationship and outreach platform built alongside the ERP. Pipeline tracking, automated client communication, deal-stage analytics, and 12 CRUD + pipeline operations.</p>
+      <p class="project-card__insight">12 CRUD + pipeline operations — from lead capture to deal close, with automated communication at each stage. Built alongside the ERP so sales and production stay in sync.</p>
       <ul class="project-card__pills"><li>Pipeline Tracking</li><li>Automated Outreach</li><li>Deal Analytics</li><li>12 Operations</li></ul>
     </div>
     <div class="project-card__right">
