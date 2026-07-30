@@ -289,7 +289,45 @@
       line-height: 1.2; margin-bottom: 0.6rem; letter-spacing: -0.01em;
     }
     .service__desc {
-      font-size: 0.82rem; color: var(--muted); line-height: 1.6;
+      font-size: 0.78rem; color: var(--muted); line-height: 1.55;
+      max-width: 400px;
+    }
+
+    /* ── Founder Timeline ──────────────────────────────── */
+    .timeline { position: relative; padding-left: 4.5rem; }
+    .timeline::before {
+      content: ''; position: absolute; left: 3.5rem; top: 0.35rem;
+      bottom: 0; width: 1px; background: var(--border);
+    }
+    .timeline__item { position: relative; padding: 0 0 2.5rem 1.5rem; }
+    .timeline__item:last-child { padding-bottom: 0; }
+    .timeline__year {
+      position: absolute; left: -4rem; top: 0.15rem;
+      font-family: var(--font-mono); font-size: 0.6rem; color: var(--muted);
+      letter-spacing: 0.05em; width: 3rem; text-align: right;
+    }
+    .timeline__dot {
+      position: absolute; left: -1.75rem; top: 0.35rem;
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--accent); border: 2px solid var(--bg);
+    }
+    .timeline__content h3 {
+      font-size: 0.9rem; font-weight: 600; color: var(--ink);
+      margin-bottom: 0.2rem;
+    }
+    .timeline__content p {
+      font-size: 0.75rem; color: var(--muted); line-height: 1.5;
+      max-width: 520px;
+    }
+    @media (max-width: 480px) {
+      .timeline { padding-left: 3rem; }
+      .timeline::before { left: 2.2rem; }
+      .timeline__item { padding-left: 1rem; }
+      .timeline__year { font-size: 0.55rem; width: 2rem; left: -2.8rem; }
+      .timeline__dot { left: -1.35rem; width: 6px; height: 6px; }
+      .timeline__content h3 { font-size: 0.8rem; }
+      .timeline__content p { font-size: 0.7rem; }
+      .timeline__item { padding-bottom: 2rem; }
     }
 
     /* ── Project cells ──────────────────────────────────── */
@@ -814,6 +852,61 @@
     <p class="contact__text">Building a crypto data product? Need a fractional engineering lead or technical advisor?</p>
     <a class="contact__email" href="mailto:yogesh.sahu@trinetryinfotech.com">yogesh.sahu@trinetryinfotech.com</a>
     <p class="contact__response">Typically responds within 24 hours.</p>
+  </div>
+
+  <!-- ════ FOUNDER TIMELINE ════ -->
+  <div class="cell cell--full" id="journey">
+    <p class="cell__overline">Journey</p>
+    <div class="timeline">
+      <div class="timeline__item">
+        <span class="timeline__year">~2021</span>
+        <span class="timeline__dot"></span>
+        <div class="timeline__content">
+          <h3>Founded Trinetry Infotech</h3>
+          <p>DPIIT-recognised AI startup with a mission: deliver institutional-grade infrastructure at a fraction of enterprise cost. The founding bet was that lean teams with the right stack could match Big Tech output.</p>
+        </div>
+      </div>
+      <div class="timeline__item">
+        <span class="timeline__year">2022</span>
+        <span class="timeline__dot"></span>
+        <div class="timeline__content">
+          <h3>CryptoPrism Platform</h3>
+          <p>On-chain analytics engine covering 17 blockchains — delivering institutional-scale data (the kind that costs $15K–30K/mo elsewhere) running on under $100/mo of infrastructure. The platform that proved the thesis.</p>
+        </div>
+      </div>
+      <div class="timeline__item">
+        <span class="timeline__year">2023</span>
+        <span class="timeline__dot"></span>
+        <div class="timeline__content">
+          <h3>Trading Infrastructure</h3>
+          <p>Deployed TimesFM-100-Coin-Bot (regime-aware ML signals) and CryptoPrism-News-Fetcher (real-time sentiment-driven spot execution). Production ML pipelines with live evaluation — not research, revenue.</p>
+        </div>
+      </div>
+      <div class="timeline__item">
+        <span class="timeline__year">2024</span>
+        <span class="timeline__dot"></span>
+        <div class="timeline__content">
+          <h3>Product Expansion</h3>
+          <p>Launched gyanmarg / Polymind (AI-powered edtech with personalised learning) and pratyaksha / Becoming (private AI journaling with RAG self-reflection). React + Firebase on the frontend, FastAPI + pgvector on the backend. Two verticals, one lean team.</p>
+        </div>
+      </div>
+      <div class="timeline__item">
+        <span class="timeline__year">2025</span>
+        <span class="timeline__dot"></span>
+        <div class="timeline__content">
+          <h3>Scaled to 12 Products</h3>
+          <p>Twelve live products across the fleet — crypto data, edtech, journaling, trading bots, PGG. Three-person core, capital-efficient, full-stack. Everything shipped to production, nothing abandoned.</p>
+        </div>
+      </div>
+      <div class="timeline__item">
+        <span class="timeline__year">2026</span>
+        <span class="timeline__dot"></span>
+        <div class="timeline__content">
+          <h3>Building the Next Chapter</h3>
+          <p>The engineering philosophy is proven: institutional quality on startup economics. Growing the team, deepening the product surface, and looking for the right IC data engineering role to bring this approach to a larger stage.</p>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- ════ BUILT WITH ════ -->
