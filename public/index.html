@@ -330,41 +330,58 @@
       max-width: 400px;
     }
 
-    /* ── Founder Timeline ──────────────────────────────── */
-    .timeline { position: relative; padding-left: 4.5rem; }
-    .timeline::before {
-      content: ''; position: absolute; left: 3.5rem; top: 0.35rem;
-      bottom: 0; width: 1px; background: var(--border);
+    /* ── Founder Timeline (horizontal, collapsible) ─────── */
+    .timeline-h { position: relative; }
+    .timeline-h__rail {
+      position: relative; display: flex; justify-content: space-between;
+      padding: 0 1rem;
     }
-    .timeline__item { position: relative; padding: 0 0 2.5rem 1.5rem; }
-    .timeline__item:last-child { padding-bottom: 0; }
-    .timeline__year {
-      position: absolute; left: -5.25rem; top: 0.15rem;
-      font-family: var(--font-mono); font-size: 0.6rem; color: var(--muted);
-      letter-spacing: 0.05em; width: 4.25rem; text-align: right;
+    .timeline-h__rail::before {
+      content: ''; position: absolute; left: 1rem; right: 1rem; top: 10px;
+      height: 1px; background: var(--border);
     }
-    .timeline__dot {
-      position: absolute; left: -1.75rem; top: 0.35rem;
-      width: 8px; height: 8px; border-radius: 50%;
-      background: var(--accent); border: 2px solid var(--bg);
+    .timeline-h__item {
+      position: relative; display: flex; flex-direction: column; align-items: center;
+      gap: 0.5rem; padding: 0 0.25rem; cursor: pointer; flex: 1; min-width: 0;
+      background: none; border: none; color: inherit; text-align: center;
     }
-    .timeline__content h3 {
-      font-size: 0.9rem; font-weight: 600; color: var(--ink);
-      margin-bottom: 0.2rem;
+    .timeline-h__dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--cell); border: 2px solid var(--muted);
+      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+      flex-shrink: 0; position: relative; z-index: 1;
     }
-    .timeline__content p {
-      font-size: 0.75rem; color: var(--muted); line-height: 1.5;
-      max-width: 520px;
+    .timeline-h__item:hover .timeline-h__dot,
+    .timeline-h__item[aria-expanded="true"] .timeline-h__dot {
+      border-color: var(--accent); background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
     }
-    @media (max-width: 480px) {
-      .timeline { padding-left: 3rem; }
-      .timeline::before { left: 2.2rem; }
-      .timeline__item { padding-left: 1rem; }
-      .timeline__year { font-size: 0.55rem; width: 2.8rem; left: -3.6rem; }
-      .timeline__dot { left: -1.35rem; width: 6px; height: 6px; }
-      .timeline__content h3 { font-size: 0.8rem; }
-      .timeline__content p { font-size: 0.7rem; }
-      .timeline__item { padding-bottom: 2rem; }
+    .timeline-h__year {
+      font-family: var(--font-mono); font-size: 0.55rem; color: var(--muted);
+      letter-spacing: 0.05em; white-space: nowrap;
+    }
+    .timeline-h__title {
+      font-size: 0.68rem; font-weight: 600; color: var(--ink);
+      line-height: 1.3; max-width: 110px;
+    }
+    .timeline-h__detail {
+      display: none; margin-top: 1.5rem; padding: 1.25rem 1.5rem;
+      background: var(--cell); border: 1px solid var(--border); border-radius: 10px;
+    }
+    .timeline-h__detail p {
+      font-size: 0.78rem; color: var(--muted); line-height: 1.55; max-width: 620px;
+    }
+    .timeline-h__detail strong { color: var(--ink); font-weight: 600; }
+    .timeline-h__detail[hidden] { display: none; }
+    .timeline-h__hint {
+      margin-top: 1rem; font-size: 0.62rem; color: var(--muted);
+      text-align: center; letter-spacing: 0.04em;
+    }
+    @media (max-width: 640px) {
+      .timeline-h__rail { gap: 0.5rem; padding: 0; overflow-x: auto; justify-content: flex-start; }
+      .timeline-h__rail::before { left: 1.1rem; right: 1.1rem; }
+      .timeline-h__item { flex: 0 0 auto; min-width: 72px; }
+      .timeline-h__title { font-size: 0.62rem; max-width: 72px; }
     }
 
     /* ── Engagement Models ─────────────────────────────── */
@@ -976,55 +993,45 @@
   <!-- ════ FOUNDER TIMELINE ════ -->
   <div class="cell cell--full" id="journey">
     <p class="cell__overline">Journey</p>
-    <div class="timeline">
-      <div class="timeline__item">
-        <span class="timeline__year">Apr 2024</span>
-        <span class="timeline__dot"></span>
-        <div class="timeline__content">
-          <h3>CryptoPrism — the Seed</h3>
-          <p>On-chain analytics engine covering 17 blockchains — delivering institutional-scale data (the kind that costs $15K–30K/mo elsewhere) running on under $100/mo of infrastructure. Built before the company existed, this was the proof that the thesis could work.</p>
-        </div>
+    <div class="timeline-h">
+      <div class="timeline-h__rail" role="list">
+        <button class="timeline-h__item" type="button" aria-expanded="false">
+          <span class="timeline-h__year">Apr 2024</span>
+          <span class="timeline-h__dot"></span>
+          <span class="timeline-h__title">CryptoPrism</span>
+        </button>
+        <button class="timeline-h__item" type="button" aria-expanded="false">
+          <span class="timeline-h__year">Nov 2025</span>
+          <span class="timeline-h__dot"></span>
+          <span class="timeline-h__title">Founded Trinetry</span>
+        </button>
+        <button class="timeline-h__item" type="button" aria-expanded="false">
+          <span class="timeline-h__year">2025</span>
+          <span class="timeline-h__dot"></span>
+          <span class="timeline-h__title">Trading Infrastructure</span>
+        </button>
+        <button class="timeline-h__item" type="button" aria-expanded="false">
+          <span class="timeline-h__year">2025</span>
+          <span class="timeline-h__dot"></span>
+          <span class="timeline-h__title">Product Expansion</span>
+        </button>
+        <button class="timeline-h__item" type="button" aria-expanded="false">
+          <span class="timeline-h__year">2026</span>
+          <span class="timeline-h__dot"></span>
+          <span class="timeline-h__title">Scaled to 12 Products</span>
+        </button>
+        <button class="timeline-h__item" type="button" aria-expanded="false">
+          <span class="timeline-h__year">2026</span>
+          <span class="timeline-h__dot"></span>
+          <span class="timeline-h__title">Next Chapter</span>
+        </button>
       </div>
-      <div class="timeline__item">
-        <span class="timeline__year">Nov 2025</span>
-        <span class="timeline__dot"></span>
-        <div class="timeline__content">
-          <h3>Founded Trinetry Infotech</h3>
-          <p>Incorporated as a <strong>DPIIT-recognised AI startup</strong> with a mission: deliver institutional-grade infrastructure at a fraction of enterprise cost. The founding bet was that lean teams with the right stack could match Big Tech output.</p>
-        </div>
+
+      <div class="timeline-h__detail" id="journey-detail" hidden>
+        <p id="journey-detail-text"></p>
       </div>
-      <div class="timeline__item">
-        <span class="timeline__year">2025</span>
-        <span class="timeline__dot"></span>
-        <div class="timeline__content">
-          <h3>Trading Infrastructure</h3>
-          <p>Deployed TimesFM-100-Coin-Bot (regime-aware ML signals) and CryptoPrism-News-Fetcher (real-time sentiment-driven spot execution). Production ML pipelines with live evaluation — not research, revenue.</p>
-        </div>
-      </div>
-      <div class="timeline__item">
-        <span class="timeline__year">2025</span>
-        <span class="timeline__dot"></span>
-        <div class="timeline__content">
-          <h3>Product Expansion</h3>
-          <p>Launched gyanmarg / Polymind (AI-powered edtech with personalised learning) and pratyaksha / Becoming (private AI journaling with RAG self-reflection). React + Firebase on the frontend, FastAPI + pgvector on the backend. Two verticals, one lean team.</p>
-        </div>
-      </div>
-      <div class="timeline__item">
-        <span class="timeline__year">2026</span>
-        <span class="timeline__dot"></span>
-        <div class="timeline__content">
-          <h3>Scaled to 12 Products</h3>
-          <p>Twelve live products across the fleet — crypto data, edtech, journaling, trading bots, PGG. Three-person core, capital-efficient, full-stack. Everything shipped to production, nothing abandoned.</p>
-        </div>
-      </div>
-      <div class="timeline__item">
-        <span class="timeline__year">2026</span>
-        <span class="timeline__dot"></span>
-        <div class="timeline__content">
-          <h3>Building the Next Chapter</h3>
-          <p>The engineering philosophy is proven: institutional quality on startup economics. Growing the team and deepening the product surface across crypto data, edtech, and AI — with every product shipping to production.</p>
-        </div>
-      </div>
+
+      <p class="timeline-h__hint">Click a milestone to expand.</p>
     </div>
   </div>
 
@@ -1288,6 +1295,35 @@
   if (tagline) {
     tagline.addEventListener('click', () => {
       showToast('> Intelligence, Engineered. That is the whole pitch.');
+    });
+  }
+
+  /* ── Journey timeline (horizontal, collapsible) ──────── */
+  const journeyItems = document.querySelectorAll('.timeline-h__item');
+  const journeyDetail = document.getElementById('journey-detail');
+  const journeyText = document.getElementById('journey-detail-text');
+  const journeyCopy = {
+    'Apr 2024': 'On-chain analytics engine covering 17 blockchains — delivering institutional-scale data (the kind that costs $15K–30K/mo elsewhere) running on under $100/mo of infrastructure. Built before the company existed, this was the proof that the thesis could work.',
+    'Nov 2025': 'Incorporated as a DPIIT-recognised AI startup with a mission: deliver institutional-grade infrastructure at a fraction of enterprise cost. The founding bet was that lean teams with the right stack could match Big Tech output.',
+    '2025 Trading Infrastructure': 'Deployed TimesFM-100-Coin-Bot (regime-aware ML signals) and CryptoPrism-News-Fetcher (real-time sentiment-driven spot execution). Production ML pipelines with live evaluation — not research, revenue.',
+    '2025 Product Expansion': 'Launched gyanmarg / Polymind (AI-powered edtech with personalised learning) and pratyaksha / Becoming (private AI journaling with RAG self-reflection). React + Firebase on the frontend, FastAPI + pgvector on the backend. Two verticals, one lean team.',
+    '2026 Scaled to 12 Products': 'Twelve live products across the fleet — crypto data, edtech, journaling, trading bots, PGG. Three-person core, capital-efficient, full-stack. Everything shipped to production, nothing abandoned.',
+    '2026 Next Chapter': 'The engineering philosophy is proven: institutional quality on startup economics. Growing the team and deepening the product surface across crypto data, edtech, and AI — with every product shipping to production.'
+  };
+  if (journeyItems.length && journeyDetail && journeyText) {
+    journeyItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const key = item.querySelector('.timeline-h__year').textContent.trim() + ' ' + item.querySelector('.timeline-h__title').textContent.trim();
+        const alreadyOpen = item.getAttribute('aria-expanded') === 'true';
+        journeyItems.forEach(i => i.setAttribute('aria-expanded', 'false'));
+        if (!alreadyOpen) {
+          journeyText.textContent = journeyCopy[key] || '';
+          journeyDetail.hidden = false;
+          item.setAttribute('aria-expanded', 'true');
+        } else {
+          journeyDetail.hidden = true;
+        }
+      });
     });
   }
 
