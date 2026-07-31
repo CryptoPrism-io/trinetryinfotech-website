@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Trinetry Infotech — DPIIT-recognised AI engineering firm. On-chain analytics at infrastructure cost others can't match. 3 products shipped, 10+ ML models, 45+ knowledge modules." />
+  <meta name="description" content="Trinetry Infotech — DPIIT-recognised AI engineering firm. On-chain analytics at infrastructure cost others can't match. 12 products shipped, 10+ ML models, 17 blockchains." />
   <meta property="og:title" content="Trinetry Infotech — Intelligence, Engineered." />
   <meta property="og:description" content="DPIIT-recognised AI engineering firm. On-chain crypto analytics, quantitative systems, and full-stack product delivery. Live at app.cryptoprism.io." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://trinetryinfotech.com" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Trinetry Infotech — Intelligence, Engineered." />
-  <meta name="twitter:description" content="AI engineering · quant systems · data infrastructure. DPIIT-recognised, 3 products shipped." />
+  <meta name="twitter:description" content="AI engineering · quant systems · data infrastructure. DPIIT-recognised, 12 products shipped." />
   <link rel="icon" href="/favicon.svg" />
   <link rel="alternate icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23181612'/%3E%3Ctext x='50' y='76' font-size='72' font-family='Geist,Mono,monospace' fill='%23E8E2D6' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E" />
   <title>Trinetry Infotech — Intelligence, Engineered.</title>
@@ -200,10 +200,35 @@
     }
     .cell__hero-socials a:hover { color: var(--accent); }
     .cell__hero-socials svg { width: 16px; height: 16px; flex-shrink: 0; }
+    .cell__hero-cta {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--paper); background: var(--accent);
+      text-decoration: none; padding: 0.7rem 1.4rem; border-radius: 9999px;
+      margin-top: 1.5rem; transition: opacity 0.2s, transform 0.2s;
+    }
+    .cell__hero-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+    .cell__hero-cta--ghost {
+      background: transparent; color: var(--ink);
+      border: 1px solid var(--border);
+    }
+    .cell__hero-cta--ghost:hover { border-color: var(--accent); color: var(--accent); opacity: 1; }
+    .cell__hero-actions { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
     .contact__response { margin-top: 0.5rem; font-size: 0.72rem; color: var(--muted); }
     .social-proof { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem 2.5rem; padding: 2rem 2.5rem; }
     .social-proof__item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; color: var(--muted); }
     .social-proof__item svg { width: 18px; height: 18px; opacity: 0.5; flex-shrink: 0; }
+
+    /* ── Testimonial ────────────────────────────────────── */
+    .testimonial { max-width: 640px; margin: 0 auto; text-align: center; padding: 0.5rem 1rem; }
+    .testimonial__quote {
+      font-size: 1rem; font-weight: 400; color: var(--ink); line-height: 1.6;
+      font-style: italic; letter-spacing: -0.01em;
+    }
+    .testimonial__quote::before { content: "\201C"; }
+    .testimonial__quote::after { content: "\201D"; }
+    .testimonial__author { margin-top: 1rem; font-size: 0.75rem; color: var(--muted); }
+    .testimonial__author strong { color: var(--ink); font-weight: 600; }
     @media (max-width: 640px) {
       .cell__hero-sub { font-size: 0.75rem; }
       .social-proof { gap: 1rem; padding: 1.25rem; }
@@ -392,6 +417,11 @@
       margin-bottom: 0.75rem; line-height: 1.5;
     }
     .project__insight::before { content: "\2192\00a0"; }
+    .project__result {
+      font-size: 0.68rem; color: var(--muted); margin-top: 0.5rem; line-height: 1.5;
+    }
+    .project__result span { color: var(--accent); font-weight: 600; }
+    .project__result strong { color: var(--ink); font-weight: 600; }
 
     /* ── Micro-CTA ──────────────────────────────────────── */
     .micro-cta {
@@ -649,6 +679,10 @@
         <span>X / Twitter</span>
       </a>
     </div>
+    <div class="cell__hero-actions">
+      <a class="cell__hero-cta" href="https://cryptoprism.io" target="_blank" rel="noopener noreferrer">See the Platform &rarr;</a>
+      <a class="cell__hero-cta cell__hero-cta--ghost" href="#projects">Explore Work &darr;</a>
+    </div>
   </div>
 
   <!-- ════ STATS COMBO (desktop: 2 grid cols, mobile: flex row + divider) ════ -->
@@ -811,6 +845,7 @@
     <ul class="project__pills" aria-label="Features">
       <li>60+ Subjects</li><li>80+ Visualizations</li><li>Spaced Repetition</li><li>XP &amp; Levels</li>
     </ul>
+    <p class="project__result"><span>placeholder outcome</span> — learners engaged across <strong>placeholder #</strong> countries</p>
     <p class="project__stack"><img class="tech-icon" title="React" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/react/default.svg" alt="" />React 19 &middot; <img class="tech-icon" title="TypeScript" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/typescript/default.svg" alt="" />TypeScript &middot; <img class="tech-icon" title="Vite" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/vite/default.svg" alt="" />Vite &middot; <img class="tech-icon" title="Firebase" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/firebase/default.svg" alt="" />Firebase Hosting &middot; CloudFront</p>
     <a class="project__link" href="https://ai-polymind.web.app" target="_blank" rel="noopener noreferrer">View Project &rarr;</a>
     <a class="micro-cta" href="#contact">Discuss this</a>
@@ -845,6 +880,7 @@
     <ul class="project__pills" aria-label="Features">
       <li>AI Insights</li><li>Emotion Mapping</li><li>Theme Detection</li><li>Airtable Sync</li>
     </ul>
+    <p class="project__result"><span>placeholder outcome</span> — <strong>placeholder #</strong> journal entries processed, <strong>placeholder #</strong> insights surfaced</p>
     <p class="project__stack"><img class="tech-icon" title="React" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/react/default.svg" alt="" />React &middot; <img class="tech-icon" title="OpenAI" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/openai/default.svg" alt="" />GPT-4o &middot; <img class="tech-icon" title="AWS" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/aws/default.svg" alt="" />AWS Lightsail</p>
     <a class="project__link" href="https://ai-becoming.web.app" target="_blank" rel="noopener noreferrer">View Project &rarr;</a>
     <a class="micro-cta" href="#contact">Discuss this</a>
@@ -1093,6 +1129,14 @@
         17 Blockchains
       </span>
     </div>
+  </div>
+
+  <!-- ════ TESTIMONIAL ════ -->
+  <div class="cell cell--full">
+    <blockquote class="testimonial">
+      <p class="testimonial__quote">placeholder testimonial quote — a client in the crypto data space describing the outcome and what it was like working with the team.</p>
+      <p class="testimonial__author"><strong>Client Name</strong> &middot; Founder / Head of Product, Company Name</p>
+    </blockquote>
   </div>
 
   <!-- ════ FOOTER ════ -->
