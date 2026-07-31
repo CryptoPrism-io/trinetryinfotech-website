@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="booting">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -77,6 +77,78 @@
     }
     @keyframes blink { 0%, 50% { opacity: 1; } 50.01%, 100% { opacity: 0; } }
     @media (prefers-reduced-motion: reduce) { .cursor::after { animation: none; opacity: 0.6; } }
+
+    /* ── Mandala bloom (hero lotus) ─────────────────────── */
+    .mandala-bloom { animation: bloom 12s ease-in-out infinite; transform-origin: 26px 26px; }
+    @keyframes bloom {
+      0%, 100% { transform: scale(1); opacity: 0.18; }
+      50% { transform: scale(1.12); opacity: 0.32; }
+    }
+    @media (prefers-reduced-motion: reduce) { .mandala-bloom { animation: none; } }
+
+    /* ── Boot sequence (born from the yantra) ────────────── */
+    .boot {
+      position: fixed; inset: 0; z-index: 2000; background: var(--paper);
+      display: flex; align-items: center; justify-content: center;
+      pointer-events: none; opacity: 1; transition: opacity 0.4s ease;
+    }
+    .boot--done { opacity: 0; }
+    .boot__yantra { width: 240px; height: 240px; color: var(--accent); }
+    .boot__yantra svg { width: 100%; height: 100%; }
+    .boot__yantra [data-yan] { stroke-dasharray: 600; stroke-dashoffset: 600; animation: yandraw 0.9s ease-out forwards; }
+    .boot__yantra [data-yan="2"] { animation-delay: 0.1s; }
+    .boot__yantra [data-yan="3"] { animation-delay: 0.2s; }
+    .boot__yantra [data-yan="4"] { animation-delay: 0.3s; }
+    .boot__yantra [data-yan="5"] { animation-delay: 0.4s; }
+    .boot__yantra [data-color-burst] { opacity: 0; animation: yanpulse 0.5s ease-out 0.45s forwards; }
+    @keyframes yandraw { to { stroke-dashoffset: 0; } }
+    @keyframes yanpulse { 0% { opacity: 0; } 50% { opacity: 1; } 100% { opacity: 0.85; } }
+    html:not(.booting) .boot { display: none; }
+    html.booting .grid, html.booting .nav-wrap { opacity: 0; }
+   html { scroll-behavior: smooth; }
+    html.booting { overflow: hidden; }
+    .grid, .nav-wrap { transition: opacity 0.5s ease; }
+
+    /* ── Cursor halo ────────────────────────────────────── */
+    .halo {
+      position: fixed; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--accent); pointer-events: none; z-index: 1500;
+      transform: translate(-50%, -50%); transition: transform 0.09s linear;
+      opacity: 0.7; mix-blend-mode: screen;
+    }
+    @media (hover: none), (prefers-reduced-motion: reduce) { .halo { display: none; } }
+
+    /* ── Ambient constellation ──────────────────────────── */
+    .constellation {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.5;
+    }
+    .constellation circle { fill: var(--accent); }
+    .constellation line { stroke: var(--accent); stroke-width: 0.5; opacity: 0.15; }
+
+    /* ── Active-section glow ───────────────────────────── */
+    .cell--active { box-shadow: inset 0 0 0 1px rgba(212,120,74,0.35), 0 0 30px rgba(212,120,74,0.05); }
+
+    /* ── Stats flipboard ────────────────────────────────── */
+    .stat__num.is-flipping { display: inline-flex; overflow: hidden; height: 1em; vertical-align: bottom; }
+    .stat__num .flip-digit { display: inline-block; }
+
+    /* ── Footer ASCII draw ──────────────────────────────── */
+    .footer-inner { position: relative; }
+    .footer-draw {
+      position: absolute; top: 0; left: 0; height: 1px; width: 0;
+      background: var(--accent); opacity: 0.4;
+      transition: width 1.2s cubic-bezier(0.22,1,0.36,1);
+    }
+    .footer-draw--in { width: 100%; }
+
+    /* ── Konami pixel rain ─────────────────────────────── */
+    .pixel-rain { position: fixed; inset: 0; z-index: 1600; pointer-events: none; overflow: hidden; }
+    .pixel-rain i {
+      position: absolute; top: -10px; width: 3px; height: 8px;
+      background: var(--accent); opacity: 0.7; border-radius: 1px;
+      animation: fall linear forwards;
+    }
+    @keyframes fall { to { transform: translateY(110vh); opacity: 0; } }
 
     .skip-link {
       position: absolute; top: -100%; left: 1rem;
@@ -660,6 +732,23 @@
 
 <div class="scanlines" aria-hidden="true"></div>
 
+<!-- Boot sequence: page born from the yantra -->
+<div class="boot" id="boot" aria-hidden="true">
+  <div class="boot__yantra">
+    <svg viewBox="0 0 64 64" fill="none">
+      <rect data-yan="1" x="5" y="5" width="54" height="54" rx="3" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.5"/>
+      <circle data-yan="2" cx="32" cy="32" r="24" stroke="currentColor" stroke-width="1" fill="none" opacity="0.4"/>
+      <polygon data-yan="3" points="32,14 48,44 16,44" stroke="currentColor" stroke-width="1.5" fill="none"/>
+      <polygon data-yan="4" points="32,50 48,20 16,20" stroke="currentColor" stroke-width="1.5" fill="none"/>
+      <circle data-yan="5" cx="32" cy="32" r="6" stroke="currentColor" stroke-width="1" fill="none"/>
+      <circle data-color-burst cx="32" cy="32" r="3" fill="currentColor"/>
+    </svg>
+  </div>
+</div>
+
+<svg class="constellation" id="constellation" aria-hidden="true"></svg>
+<div class="halo" id="halo" aria-hidden="true"></div>
+
 <a class="skip-link" href="#main">Skip to main content</a>
 
 <!-- ── Nav ────────────────────────────────────────────── -->
@@ -905,7 +994,7 @@
         <!-- Inner hexagon -->
         <polygon points="26,12 37,18 37,34 26,40 15,34 15,18" stroke="var(--accent)" stroke-width="0.4" fill="none" opacity="0.15" />
         <!-- Lotus petals (8 petals from 4 rotated ellipses) -->
-        <g opacity="0.18">
+        <g opacity="0.18" class="mandala-bloom" style="transform-origin: 26px 26px;">
           <ellipse cx="26" cy="16" rx="3.5" ry="9" stroke="var(--accent)" stroke-width="0.5" fill="none" />
           <ellipse cx="26" cy="16" rx="3.5" ry="9" stroke="var(--accent)" stroke-width="0.5" fill="none" transform="rotate(45 26 26)" />
           <ellipse cx="26" cy="16" rx="3.5" ry="9" stroke="var(--accent)" stroke-width="0.5" fill="none" transform="rotate(90 26 26)" />
@@ -1227,6 +1316,7 @@
   <!-- ════ FOOTER ════ -->
   <div class="cell cell--full">
     <footer class="footer-inner">
+      <div class="footer-draw" id="footerDraw"></div>
       <p class="footer__tagline"><span class="accent">Intelligence,</span> Engineered.</p>
       <p class="footer__copy">&copy; 2026 Yogesh Sahu &mdash; trinetryinfotech.com</p>
     </footer>
@@ -1238,7 +1328,50 @@
 
 <script>
 (function() {
-  /* ── Count-up ─────────────────────────────────────────── */
+  /* ── Boot sequence: page born from the yantra ─────────── */
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const boot = document.getElementById('boot');
+  const finishBoot = () => {
+    document.documentElement.classList.remove('booting');
+    if (boot) { boot.classList.add('boot--done'); setTimeout(() => { boot.style.display = 'none'; }, 500); }
+  };
+  if (reduceMotion) { finishBoot(); }
+  else { setTimeout(finishBoot, 1100); }
+
+  /* ── Cursor halo (desktop only) ────────────────────────── */
+  const halo = document.getElementById('halo');
+  if (halo && window.matchMedia('(hover: hover)').matches && !reduceMotion) {
+    let hx = 0, hy = 0, cx = 0, cy = 0;
+    window.addEventListener('mousemove', (e) => { cx = e.clientX; cy = e.clientY; });
+    const tick = () => {
+      hx += (cx - hx) * 0.25; hy += (cy - hy) * 0.25;
+      halo.style.transform = `translate(${hx}px, ${hy}px) translate(-50%, -50%)`;
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+
+  /* ── Ambient pixel constellation ────────────────────────── */
+  const cconstEl = document.getElementById('constellation');
+  if (cconstEl && !reduceMotion) {
+    const W = window.innerWidth, H = window.innerHeight;
+    const pts = [];
+    for (let i = 0; i < 30; i++) {
+      pts.push({ x: Math.random()*W, y: Math.random()*H });
+    }
+    let svg = '';
+    pts.forEach((p, i) => {
+      pts.forEach((q, j) => {
+        if (j <= i) return;
+        const d = Math.hypot(p.x-q.x, p.y-q.y);
+        if (d < 180) svg += `<line x1="${p.x}" y1="${p.y}" x2="${q.x}" y2="${q.y}"/>`;
+      });
+    });
+    pts.forEach(p => { svg += `<circle cx="${p.x}" cy="${p.y}" r="1.2"/>`; });
+    cconstEl.innerHTML = svg;
+  }
+
+  /* ── Count-up (flipboard) ──────────────────────────────── */
   const countEls = document.querySelectorAll('[data-count-to]');
   if (countEls.length) {
     const countObs = new IntersectionObserver((entries) => {
@@ -1247,6 +1380,7 @@
         const el = e.target;
         const target = parseInt(el.getAttribute('data-count-to'), 10);
         const suffix = el.getAttribute('data-count-suffix') || '';
+        if (reduceMotion) { el.textContent = target + suffix; countObs.unobserve(el); return; }
         const dur = 1200;
         const start = performance.now();
         const step = (now) => {
@@ -1279,20 +1413,31 @@
   const pill = document.querySelector('.nav-pill');
   if (pill) { window.addEventListener('scroll', () => { pill.classList.toggle('nav--scrolled', window.scrollY > 80); }, { passive: true }); }
 
-  /* ── Active nav link ──────────────────────────────────── */
+  /* ── Active nav link + section glow ────────────────────── */
   const sections = document.querySelectorAll('div[id]');
   const links = document.querySelectorAll('.nav__link');
-  if (sections.length && links.length) {
+  if (sections.length) {
     const obs = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
           links.forEach(l => l.classList.remove('active'));
+          document.querySelectorAll('.cell--active').forEach(c => c.classList.remove('cell--active'));
           const active = document.querySelector(`.nav__link[href="#${e.target.id}"]`);
           if (active) active.classList.add('active');
+          e.target.classList.add('cell--active');
         }
       });
     }, { threshold: 0.35 });
     sections.forEach(s => obs.observe(s));
+  }
+
+  /* ── Footer ASCII draw on scroll-in ────────────────────── */
+  const footerDraw = document.getElementById('footerDraw');
+  if (footerDraw) {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { footerDraw.classList.add('footer-draw--in'); obs.unobserve(e.target); } });
+    }, { threshold: 0.4 });
+    obs.observe(footerDraw);
   }
 
   /* ── Hamburger menu ────────────────────────────────────── */
@@ -1362,6 +1507,20 @@
       if (konamiIdx === KONAMI.length) {
         konamiIdx = 0;
         showToast('> Konami unlocked: 12 products, 17 chains, 3 people, 0 luck.');
+        if (!reduceMotion) {
+          const rain = document.createElement('div');
+          rain.className = 'pixel-rain';
+          document.body.appendChild(rain);
+          for (let i = 0; i < 60; i++) {
+            const drop = document.createElement('i');
+            drop.style.left = (Math.random()*100) + 'vw';
+            drop.style.animationDuration = (1 + Math.random()*1.4) + 's';
+            drop.style.animationDelay = (Math.random()*0.6) + 's';
+            drop.style.opacity = (0.3 + Math.random()*0.5);
+            rain.appendChild(drop);
+          }
+          setTimeout(() => rain.remove(), 4000);
+        }
       }
     } else {
       konamiIdx = (key === KONAMI[0]) ? 1 : 0;
