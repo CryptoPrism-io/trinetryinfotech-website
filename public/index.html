@@ -330,6 +330,20 @@
       .timeline__item { padding-bottom: 2rem; }
     }
 
+    /* ── Engagement Models ─────────────────────────────── */
+    .engagement { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border-radius: 12px; overflow: hidden; }
+    .engagement__card { background: var(--cell); padding: 1.5rem; }
+    .engagement__label { font-size: 0.6rem; font-family: var(--font-mono); color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem; }
+    .engagement__rate { font-size: 1.25rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem; letter-spacing: -0.02em; }
+    .engagement__rate span { font-size: 0.65rem; font-weight: 500; color: var(--muted); }
+    .engagement__desc { font-size: 0.75rem; color: var(--muted); line-height: 1.5; }
+    .engagement__note { margin-top: 1.25rem; font-size: 0.65rem; color: var(--muted); text-align: center; }
+    .engagement__link { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+    .engagement__link:hover { border-bottom-color: var(--accent); }
+    @media (max-width: 720px) {
+      .engagement { grid-template-columns: 1fr; }
+    }
+
     /* ── Project cells ──────────────────────────────────── */
     .project__badge {
       font-size: 0.62rem; font-weight: 500; letter-spacing: 0.15em;
@@ -884,6 +898,29 @@
     <p class="contact__text">Building a crypto data product? Need a fractional engineering lead or technical advisor?</p>
     <a class="contact__email" href="mailto:yogesh.sahu@trinetryinfotech.com">yogesh.sahu@trinetryinfotech.com</a>
     <p class="contact__response">Typically responds within 24 hours.</p>
+  </div>
+
+  <!-- ════ ENGAGEMENT MODELS ════ -->
+  <div class="cell cell--full" id="engagement">
+    <p class="cell__overline">Engagement Models</p>
+    <div class="engagement">
+      <div class="engagement__card">
+        <p class="engagement__label">Advisory</p>
+        <p class="engagement__rate">₹10,000 <span>/ hour</span></p>
+        <p class="engagement__desc">Architecture reviews, technical direction, data strategy, and roadmap sessions for teams building AI, quant, or crypto data products.</p>
+      </div>
+      <div class="engagement__card">
+        <p class="engagement__label">Fractional Engineering Lead</p>
+        <p class="engagement__rate">₹2,00,000 <span>/ month</span></p>
+        <p class="engagement__desc">Hands-on leadership across design, build, and ship — ideal for startups that need senior IC output without a full-time hire.</p>
+      </div>
+      <div class="engagement__card">
+        <p class="engagement__label">Project Delivery</p>
+        <p class="engagement__rate">From ₹5,00,000 <span>/ project</span></p>
+        <p class="engagement__desc">End-to-end product builds: data pipelines, ML systems, full-stack apps, and integrations. Scope and fixed fee agreed upfront.</p>
+      </div>
+    </div>
+    <p class="engagement__note">All rates in INR. International clients billed at equivalent USD. Start with a no-cost 30-minute scoping call — <a class="engagement__link" href="mailto:yogesh.sahu@trinetryinfotech.com">yogesh.sahu@trinetryinfotech.com</a></p>
   </div>
 
   <!-- ════ FOUNDER TIMELINE ════ -->
