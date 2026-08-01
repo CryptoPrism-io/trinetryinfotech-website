@@ -325,25 +325,12 @@
     .social-proof__item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; color: var(--muted); }
     .social-proof__item svg { width: 18px; height: 18px; opacity: 0.5; flex-shrink: 0; }
 
-    /* ── Testimonial ────────────────────────────────────── */
-    .testimonial { max-width: 640px; margin: 0 auto; text-align: center; padding: 0.5rem 1rem; }
-    .testimonial__quote {
-      font-size: 1rem; font-weight: 400; color: var(--ink); line-height: 1.6;
-      font-style: italic; letter-spacing: -0.01em;
-    }
-    .testimonial__quote::before { content: "\201C"; }
-    .testimonial__quote::after { content: "\201D"; }
-    .testimonial__author { margin-top: 1rem; font-size: 0.75rem; color: var(--muted); }
-    .testimonial__author strong { color: var(--ink); font-weight: 600; }
     @media (max-width: 640px) {
       .cell__hero-sub { font-size: 0.75rem; line-height: 1.6; }
       .cell__hero-sub { margin-top: 1rem; }
       .cell__hero-actions { margin-top: 0.5rem; }
       .social-proof { gap: 1rem; padding: 1.75rem 1.25rem; }
       .social-proof__item { font-size: 0.68rem; }
-      .testimonial { padding: 0.5rem 1rem; }
-      .testimonial__quote { font-size: 0.9rem; }
-      .testimonial__author { margin-top: 1.25rem; }
       .timeline-h__detail { padding: 1.25rem 1.25rem; }
       .timeline-h__hint { margin-top: 1.25rem; }
       .engagement__card { padding: 1.5rem 1.25rem; }
@@ -563,11 +550,6 @@
       margin-bottom: 0.75rem; line-height: 1.5;
     }
     .project__insight::before { content: "\2192\00a0"; }
-    .project__result {
-      font-size: 0.68rem; color: var(--muted); margin-top: 0.5rem; line-height: 1.5;
-    }
-    .project__result span { color: var(--accent); font-weight: 600; }
-    .project__result strong { color: var(--ink); font-weight: 600; }
 
     /* ── Micro-CTA ──────────────────────────────────────── */
     .micro-cta {
@@ -671,7 +653,7 @@
       .project__pills { margin-top: 1rem; }
       .project__stack { margin-top: 1rem; }
       .project__link { margin-top: 1rem; }
-      .project__result { margin-top: 0.75rem; }
+      .project__link { margin-top: 1rem; }
       .timeline-h { margin-top: 1rem; }
       .built-with { padding: 1rem 0; }
       .built-with__logo { height: 20px; }
@@ -1029,7 +1011,6 @@
     <ul class="project__pills" aria-label="Features">
       <li>60+ Subjects</li><li>80+ Visualizations</li><li>Spaced Repetition</li><li>XP &amp; Levels</li>
     </ul>
-    <p class="project__result"><span>placeholder outcome</span> — learners engaged across <strong>placeholder #</strong> countries</p>
     <p class="project__stack"><img class="tech-icon" title="React" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/react/default.svg" alt="" />React 19 &middot; <img class="tech-icon" title="TypeScript" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/typescript/default.svg" alt="" />TypeScript &middot; <img class="tech-icon" title="Vite" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/vite/default.svg" alt="" />Vite &middot; <img class="tech-icon" title="Firebase" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/firebase/default.svg" alt="" />Firebase Hosting &middot; CloudFront</p>
     <a class="project__link" href="https://ai-polymind.web.app" target="_blank" rel="noopener noreferrer">View Project &rarr;</a>
     <a class="micro-cta" href="#contact">Discuss this</a>
@@ -1064,7 +1045,6 @@
     <ul class="project__pills" aria-label="Features">
       <li>AI Insights</li><li>Emotion Mapping</li><li>Theme Detection</li><li>Airtable Sync</li>
     </ul>
-    <p class="project__result"><span>placeholder outcome</span> — <strong>placeholder #</strong> journal entries processed, <strong>placeholder #</strong> insights surfaced</p>
     <p class="project__stack"><img class="tech-icon" title="React" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/react/default.svg" alt="" />React &middot; <img class="tech-icon" title="OpenAI" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/openai/default.svg" alt="" />GPT-4o &middot; <img class="tech-icon" title="AWS" src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/aws/default.svg" alt="" />AWS Lightsail</p>
     <a class="project__link" href="https://ai-becoming.web.app" target="_blank" rel="noopener noreferrer">View Project &rarr;</a>
     <a class="micro-cta" href="#contact">Discuss this</a>
@@ -1303,14 +1283,6 @@
         17 Blockchains
       </span>
     </div>
-  </div>
-
-  <!-- ════ TESTIMONIAL ════ -->
-  <div class="cell cell--full">
-    <blockquote class="testimonial">
-      <p class="testimonial__quote">We went from paying $18K/month to a data vendor to running the same coverage internally on less than $200/month of infrastructure. The team shipped the migration in five weeks and stayed on for the hard part — making sure every feed stayed fresh under real market load.</p>
-      <p class="testimonial__author"><strong>Rohit Menon</strong> &middot; Head of Engineering, Vantage Capital Analytics</p>
-    </blockquote>
   </div>
 
   <!-- ════ FOOTER ════ -->
