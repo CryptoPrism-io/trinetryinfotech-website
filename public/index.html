@@ -12,6 +12,7 @@
   <meta name="twitter:title" content="Trinetry Infotech — Intelligence, Engineered." />
   <meta name="twitter:description" content="AI engineering · quant systems · data infrastructure. DPIIT-recognised, 12 products shipped." />
   <link rel="icon" href="/favicon.svg" />
+  <link rel="canonical" href="https://trinetryinfotech.com/" />
   <link rel="alternate icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23181612'/%3E%3Ctext x='50' y='76' font-size='72' font-family='Geist,Mono,monospace' fill='%23E8E2D6' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E" />
   <title>Trinetry Infotech — Intelligence, Engineered.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -701,12 +702,26 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Trinetry Infotech",
-    "url": "https://trinetryinfotech.com",
-    "email": "yogesh.sahu@trinetryinfotech.com",
-    "description": "DPIIT-recognised AI engineering firm building at the intersection of artificial intelligence, quantitative research, and software engineering.",
-    "knowsAbout": ["Artificial Intelligence","Machine Learning","Quantitative Trading","Data Engineering","Software Consulting","Blockchain Analytics","BigQuery","PostgreSQL"]
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://trinetryinfotech.com/#organization",
+        "name": "Trinetry Infotech",
+        "url": "https://trinetryinfotech.com",
+        "email": "yogesh.sahu@trinetryinfotech.com",
+        "sameAs": ["https://x.com/CryptoPrism_io"],
+        "description": "DPIIT-recognised AI engineering firm building at the intersection of artificial intelligence, quantitative research, and software engineering.",
+        "knowsAbout": ["Artificial Intelligence","Machine Learning","Quantitative Trading","Data Engineering","Software Consulting","Blockchain Analytics","BigQuery","PostgreSQL"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://trinetryinfotech.com/#website",
+        "name": "Trinetry Infotech",
+        "url": "https://trinetryinfotech.com",
+        "publisher": { "@id": "https://trinetryinfotech.com/#organization" },
+        "inLanguage": "en"
+      }
+    ]
   }
   </script>
 </head>

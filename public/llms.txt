@@ -1,0 +1,31 @@
+# Trinetry Infotech
+
+> Trinetry Infotech is a DPIIT-recognised AI engineering firm building at the intersection of artificial intelligence, quantitative research, and software engineering — 12 production products shipped across crypto, fintech, AI, edtech and enterprise on a startup budget.
+
+## Key facts
+- Type: AI engineering / quantitative research firm (product + advisory)
+- Audience: startups and enterprises needing AI/ML, quant systems, data infrastructure, or product engineering
+- Live: https://trinetryinfotech.com
+- Recognition: DPIIT-recognised
+- Track record: 12 products shipped, 17 blockchains, 1,000+ coins, 130+ TA indicators, 10+ ML models
+- Flagship: CryptoPrism on-chain analytics platform (live at app.cryptoprism.io)
+- Team: 3-person core, capital-efficient, globally deployed
+- Engagement: advisory, fractional engineering lead, project delivery
+- Contact: yogesh.sahu@trinetryinfotech.com
+
+## Sections
+- [Home](https://trinetryinfotech.com/)
+- [Projects](https://trinetryinfotech.com/projects)
+- [Notes](https://trinetryinfotech.com/notes)
+
+## Primary routes
+- https://trinetryinfotech.com/
+- https://trinetryinfotech.com/projects
+- https://trinetryinfotech.com/notes
+
+## Contact / links
+- Email: yogesh.sahu@trinetryinfotech.com
+- Twitter/X: https://x.com/CryptoPrism_io
+- CryptoPrism: https://cryptoprism.io
+- Gyanmarg: https://ai-polymind.web.app
+- Pratyaksha: https://ai-becoming.web.app

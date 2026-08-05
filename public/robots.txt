@@ -1,0 +1,7 @@
+# Trinetry Infotech
+User-agent: *
+Allow: /
+
+# Public marketing site — all routes are crawlable.
+Host: https://trinetryinfotech.com
+Sitemap: https://trinetryinfotech.com/sitemap.xml
